@@ -4,8 +4,17 @@ import AgeConfirmation from './ageConfirmation';
 class MenuHeader extends React.Component {
   state = {  }
   render() { 
-    return ( 
-      <div>Hello123</div>
+    return (
+      <> 
+        
+        <div>
+          <div>Hello123</div>
+          <p>Bedzie komponent</p>
+          <p>Bedzie komponent</p>
+          <p>Bedzie komponent</p>
+          <p>Bedzie komponent</p>
+        </div>
+      </>
      );
   }
 }

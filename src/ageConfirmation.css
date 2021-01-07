@@ -1,0 +1,77 @@
+.bacground {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: black;
+}
+
+.bacground .mainMenu {
+  width: 400px;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border: 0;
+  margin: 0;
+  background-color: black;
+}
+
+.bacground .mainMenu .logo {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  width: 150px;
+  height: 150px;
+  background-color: white;
+}
+
+.bacground .mainMenu h1 {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+}
+
+.bacground .mainMenu div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 400px;
+}
+
+.bacground .mainMenu div button {
+  width: 170px;
+  height: 32px;
+  font-size: 20px;
+  color: black;
+  border: 3px solid black;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.bacground .mainMenu div button:hover {
+  background-color: black;
+  color: white;
+  border: 3px solid white;
+}
+/*# sourceMappingURL=ageConfirmation.css.map */

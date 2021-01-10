@@ -1,5 +1,6 @@
 import React from 'react';
 import AgeConfirmation from './ageConfirmation';
+import './ageConfirmation.css';
 
 class MainPage extends React.Component {
   state = {  }
@@ -83,8 +84,8 @@ class MenuHeader extends React.Component {
   render() { 
     return (
       <> 
-        <div>
-          <div>Hello123</div>
+        <div className='header'>
+          {/* <div>Hello123</div> */}
 
           <ul>
             <li onClick={this.mainPage}>Strona główna</li>

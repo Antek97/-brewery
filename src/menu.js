@@ -1,66 +1,106 @@
 import React from 'react';
 import AgeConfirmation from './ageConfirmation';
 
-class BeerList extends React.Component {
+class MainPage extends React.Component {
+  state = {  }
+  render() { 
+    return ( 
+     <div>pierwsza strona</div>
+     );
+  }
+}
+
+class Beers extends React.Component {
   state = {  }
   render() { 
     return (
-      <div>Hello</div>
+      <div>lista piw</div>
+      );
+  }
+}
+
+class WhereBuy extends React.Component {
+  state = {  }
+  render() { 
+    return (
+      <div>gdzie kupic</div>
+      );
+  }
+}
+
+class MyInfo extends React.Component {
+  state = {  }
+  render() { 
+    return (
+      <div>o nas</div>
+      );
+  }
+}
+
+class Contact extends React.Component {
+  state = {  }
+  render() { 
+    return (
+      <div>kontakt</div>
       );
   }
 }
 
 class MenuHeader extends React.Component {
   state = { 
-    Layer : ""
+    Layer : MainPage
    }
-
+   mainPage = () =>{
+    this.setState({
+        Layer : MainPage
+    })
+  }
 
   handleklickBeers = () =>{
     this.setState({
-        Layer : "myBeer"
+        Layer : Beers
     })
-    console.log(this.state.Layer)
   }
   whereBuy = () =>{
     this.setState({
-        Layer : "whereBuy"
+        Layer : WhereBuy
     })
     
   }
   myInfo = () =>{
     this.setState({
-        Layer : "myInfo"
+        Layer : MyInfo
     })
     
   }
   contact = () =>{
     this.setState({
-        Layer : "contact"
+        Layer : Contact
     })
-    
   }
+
 
   render() { 
     return (
       <> 
         <div>
           <div>Hello123</div>
+
           <ul>
-          <li>Strona główna</li>
-          <li onClick={this.handleklickBeers}>Nasze piwa</li>
-          <li onClick={this.whereBuy}>Gdzie kupisz</li>
-          <li onClick={this.myInfo}>O nas</li>
-          <li onClick={this.contact}>Kontakt</li>
+            <li onClick={this.mainPage}>Strona główna</li>
+            <li onClick={this.handleklickBeers}>Nasze piwa</li>
+            <li onClick={this.whereBuy}>Gdzie kupisz</li>
+            <li onClick={this.myInfo}>O nas</li>
+            <li onClick={this.contact}>Kontakt</li>
           </ul>
+
         </div>
-        <button onClick={() => console.log(this.state.Layer)}>test</button>
-        <BeerList/>
+        {React.createElement(this.state.Layer)}
+
       </>
      );
   }
 }
- 
  
 class Menu  extends React.Component {
   state = { 

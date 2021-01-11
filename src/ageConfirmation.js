@@ -1,6 +1,6 @@
 import React from 'react';
 import './ageConfirmation.css';
-import Menu from './menu';
+import './menu';
 
 
 class AgeConfirmation extends React.Component {

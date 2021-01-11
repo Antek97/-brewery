@@ -84,18 +84,20 @@ class MenuHeader extends React.Component {
   render() { 
     return (
       <> 
-        <div className='header'>
-          {/* <div>Hello123</div> */}
+        <section>
+          <header>
+          <a><img src='logo.png'></img></a>
 
-          <ul>
-            <li onClick={this.mainPage}>Strona główna</li>
-            <li onClick={this.handleklickBeers}>Nasze piwa</li>
-            <li onClick={this.whereBuy}>Gdzie kupisz</li>
-            <li onClick={this.myInfo}>O nas</li>
-            <li onClick={this.contact}>Kontakt</li>
-          </ul>
+            <ul>
+              <li onClick={this.mainPage}><a>Strona główna</a></li>
+              <li onClick={this.handleklickBeers}><a>Nasze piwa</a></li>
+              <li onClick={this.whereBuy}><a>Gdzie kupisz</a></li>
+              <li onClick={this.myInfo}><a>O nas</a></li>
+              <li onClick={this.contact}><a>Kontakt</a></li>
+            </ul>
 
-        </div>
+          </header>
+        </section>
         {React.createElement(this.state.Layer)}
 
       </>
@@ -103,7 +105,7 @@ class MenuHeader extends React.Component {
   }
 }
  
-class Menu  extends React.Component {
+class Menu extends React.Component {
   state = { 
       confirm:true,
    } 

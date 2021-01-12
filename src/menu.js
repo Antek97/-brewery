@@ -1,12 +1,43 @@
 import React from 'react';
 import AgeConfirmation from './ageConfirmation';
 import './ageConfirmation.css';
+import TestImg from'./img.jpg';
 
+class BanerMainPage extends React.Component {
+  state = { 
+   }
+   
+  render() { 
+    return ( 
+      <div className='containerBaner'>
+        <div className='box'>
+            <div className='imgBox'><img src={TestImg} alt="TestImg"/></div>
+        </div>
+        <div className='box'>
+            <div className='imgBox'><img src={TestImg} alt="TestImg"/></div>
+        </div>
+        <div className='box'>
+            <div className='imgBox'><img src={TestImg} alt="TestImg"/></div>
+        </div>
+        <div className='box'>
+            <div className='imgBox'><img src={TestImg} alt="TestImg"/></div>
+        </div>
+      </div> 
+);
+  }
+}
+ 
 class MainPage extends React.Component {
   state = {  }
   render() { 
-    return ( 
-     <div>pierwsza strona</div>
+    return (
+    <>
+      <section className="mainPage">
+        <BanerMainPage/>
+      </section>
+      {/* <footer></footer> */}
+      
+      </>
      );
   }
 }
@@ -15,7 +46,10 @@ class Beers extends React.Component {
   state = {  }
   render() { 
     return (
-      <div>lista piw</div>
+      <section className="beersPage">
+        <div></div>
+        <h1>Witaj!</h1>
+      </section>
       );
   }
 }
@@ -24,7 +58,10 @@ class WhereBuy extends React.Component {
   state = {  }
   render() { 
     return (
-      <div>gdzie kupic</div>
+      <section className="whereBuyPage">
+        <div></div>
+        <h1>Witaj!</h1>
+      </section>
       );
   }
 }
@@ -33,7 +70,10 @@ class MyInfo extends React.Component {
   state = {  }
   render() { 
     return (
-      <div>o nas</div>
+      <section className="mainPage">
+        <div></div>
+        <h1>Witaj!</h1>
+      </section>
       );
   }
 }
@@ -42,7 +82,10 @@ class Contact extends React.Component {
   state = {  }
   render() { 
     return (
-      <div>kontakt</div>
+      <section className="contactPage">
+        <div></div>
+        <h1>Witaj!</h1>
+      </section>
       );
   }
 }
@@ -84,9 +127,9 @@ class MenuHeader extends React.Component {
   render() { 
     return (
       <> 
-        <section>
+        <section className="menuMainPage">
           <header>
-          <a><img src='logo.png'></img></a>
+          <a><img src={TestImg} alt="TestImg"/></a>
 
             <ul>
               <li onClick={this.mainPage}><a>Strona główna</a></li>

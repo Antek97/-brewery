@@ -55,22 +55,25 @@
         background-color: black;
         color: white;
         border: 3px solid white;
-    }
+      }
     }
   }
 }
-
-section {
+//
+.menuMainPage {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
   position: relative;
   width: 100%;
-  padding: 50px;
+  padding: 50px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff;  
+  background: #fff;
+  overflow: hidden;
 
   header {
     position: absolute;
@@ -82,7 +85,7 @@ section {
     align-items: center;
     margin: 20px;
     a {
-      margin-left: 50px;
+      margin-left: 70px;
       img{
         position: relative;
         max-width: 80px;
@@ -93,6 +96,7 @@ section {
      display: flex;
      justify-content: center;
      align-items: center;
+     margin-right: 70px ;
       li {
         margin-right: 70px;
         list-style: none;
@@ -104,7 +108,104 @@ section {
           text-decoration: none;
           font-family:"Poppins";
         }
+        a:hover{
+          border-bottom: 2px solid black;
+        }
       }
     }
   }
 }
+//
+
+.mainPage{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+// footer{
+//   height: 300px;
+//   width: 100%;
+//   background-color: black;
+// }
+
+.containerBaner{
+  margin-top:40px; 
+  position: absolute;
+  display: flex;
+  height:calc(100% - 200px);
+  width: calc(100% - 200px);
+  .box{
+    position: relative;
+    width: 25%;
+    height: 100%;
+    overflow: hidden;
+    border-right:10px solid white;
+    .imgBox{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: 0.4s;
+      opacity: 0.5;
+      filter: grayscale(1);
+
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+      .imgBox:hover{
+        opacity: 1;
+        filter: grayscale(0);
+      }
+    
+  }
+  .box:last-child{
+    border-right:none;
+  }
+}
+//
+
+.beersPage{
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-color: red;
+  h1{
+    position: relative;
+    font-family: 'Poppins';
+  }
+}
+
+.whereBuyPage{
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-color: green;
+  h1{
+    position: relative;
+    font-family: 'Poppins';
+  }
+}
+
+.contactPage{
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-color: lightblue;
+  h1{
+    position: relative;
+    font-family: 'Poppins';
+  }
+}
+
+//
+

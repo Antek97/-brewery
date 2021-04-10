@@ -1,105 +1,51 @@
 import React from 'react';
-import AgeConfirmation from './ageConfirmation';
-import './ageConfirmation.css';
-import TestImg from'./img.jpg';
+import './css/style.css'
 
-class BanerMainPage extends React.Component {
-  state = { 
-   }
-   
-  render() { 
-    return ( 
-      <div className='containerBaner'>
-        <div className='box'>
-            <div className='imgBox'><img src={TestImg} alt="TestImg"/></div>
-        </div>
-        <div className='box'>
-            <div className='imgBox'><img src={TestImg} alt="TestImg"/></div>
-        </div>
-        <div className='box'>
-            <div className='imgBox'><img src={TestImg} alt="TestImg"/></div>
-        </div>
-        <div className='box'>
-            <div className='imgBox'><img src={TestImg} alt="TestImg"/></div>
-        </div>
-      </div> 
-);
-  }
-}
- 
+
 class MainPage extends React.Component {
   state = {  }
   render() { 
-    return (
-    <>
-      <section className="mainPage">
-        <BanerMainPage/>
-      </section>
-      {/* <footer></footer> */}
-      
-      </>
-     );
-  }
-}
-
-class Beers extends React.Component {
-  state = {  }
-  render() { 
-    return (
-      <section className="beersPage">
-        <div></div>
-        <h1>Witaj!</h1>
-      </section>
-      );
+    return ( <div>22</div> );
   }
 }
 
 class WhereBuy extends React.Component {
   state = {  }
   render() { 
-    return (
-      <section className="whereBuyPage">
-        <div></div>
-        <h1>Witaj!</h1>
-      </section>
-      );
+    return ( <div>2</div> );
   }
 }
-
-class MyInfo extends React.Component {
+ 
+class Beers extends React.Component {
   state = {  }
   render() { 
     return (
-      <section className="mainPage">
-        <div></div>
-        <h1>Witaj!</h1>
+      <div>
+      <section>
+        <form>
+          <h1></h1>
+          <div><p>🔍</p><input type='text' placeholder="Search"></input></div>
+        </form>
       </section>
-      );
+      <ul></ul>
+      <div></div>
+      <button className="addbeer" onClick="">+</button>
+      </div>
+     );
   }
 }
+ 
 
-class Contact extends React.Component {
-  state = {  }
-  render() { 
-    return (
-      <section className="contactPage">
-        <div></div>
-        <h1>Witaj!</h1>
-      </section>
-      );
-  }
-}
-
-class MenuHeader extends React.Component {
+class Menu extends React.Component {
   state = { 
     Layer : MainPage
    }
-   mainPage = () =>{
+
+  mainPage = () =>{
     this.setState({
         Layer : MainPage
     })
   }
-
   handleklickBeers = () =>{
     this.setState({
         Layer : Beers
@@ -111,56 +57,20 @@ class MenuHeader extends React.Component {
     })
     
   }
-  myInfo = () =>{
-    this.setState({
-        Layer : MyInfo
-    })
-    
-  }
-  contact = () =>{
-    this.setState({
-        Layer : Contact
-    })
-  }
 
 
   render() { 
     return (
       <> 
-        <section className="menuMainPage">
-          <header>
-          <a><img src={TestImg} alt="TestImg"/></a>
-
-            <ul>
-              <li onClick={this.mainPage}><a>Strona główna</a></li>
-              <li onClick={this.handleklickBeers}><a>Nasze piwa</a></li>
-              <li onClick={this.whereBuy}><a>Gdzie kupisz</a></li>
-              <li onClick={this.myInfo}><a>O nas</a></li>
-              <li onClick={this.contact}><a>Kontakt</a></li>
-            </ul>
-
-          </header>
-        </section>
         {React.createElement(this.state.Layer)}
+        <section className="menu">
+            <ul className="menu__list">
+              <li className="menu__btn" onClick={this.mainPage}><a>+</a></li>
+              <li className="menu__btn" onClick={this.handleklickBeers}><a>+</a></li>
+              <li className="menu__btn" onClick={this.whereBuy}><a>+</a></li>
+            </ul>
+        </section>
 
-      </>
-     );
-  }
-}
- 
-class Menu extends React.Component {
-  state = { 
-      confirm:true,
-   } 
-   onChange = (confirm)=> {
-    this.setState({
-      confirm: confirm
-    });
-  }
-  render() { 
-    return ( 
-      <>
-        {this.state.confirm === null ? <AgeConfirmation onChange={this.state.confirm}/> : <MenuHeader/> }
       </>
      );
   }

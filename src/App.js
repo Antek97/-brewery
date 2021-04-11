@@ -1,4 +1,3 @@
-
 import Menu from './menu';
 
 function App() {

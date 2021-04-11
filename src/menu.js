@@ -1,36 +1,85 @@
 import React from 'react';
-import './css/style.css'
+import './css/style.css';
+import NewBeer from './addNewBeer';
+import BeersList from './BeersList';
 
 
 class MainPage extends React.Component {
   state = {  }
   render() { 
-    return ( <div>22</div> );
+    return ( <div>2</div> );
   }
 }
 
-class WhereBuy extends React.Component {
+class Profile extends React.Component {
   state = {  }
   render() { 
-    return ( <div>2</div> );
+    return ( <div>1</div> );
   }
 }
  
 class Beers extends React.Component {
-  state = {  }
+  state = { 
+    flagForm: false,
+    beers:[
+      {
+      id:4,
+      beerName: 'Bloody IPA',
+      styleBeer: 'IPA - American',
+      brewery: 'Deer Bear',
+      rating: 4.25,
+      dataAdd: null,
+      },{
+      id:1,
+      beerName: 'KAME HAME',
+      styleBeer: 'IPA - Milkshake',
+      brewery: 'Deer Bear',
+      rating: 4,
+      dataAdd: null,
+      },{
+      id:2,
+      beerName: 'Noemi',
+      styleBeer: 'IPA - Triple New England',
+      brewery: 'Deer Bear',
+      rating: 4.5,
+      dataAdd: null,
+      }
+    ]
+  }
+  deleteBeer = (id) => {
+    const beers = [...this.state.beers]
+    const index = beers.findIndex(beer => beer.id === id);
+    beers.splice(index, 1);
+    this.setState({
+      beers
+    })
+  }
+
+  onChangeFlagForm =()=> {
+    this.setState({
+      flagForm: !this.state.flagForm,
+    })
+  }
+
   render() { 
     return (
-      <div>
-      <section>
-        <form>
-          <h1></h1>
-          <div><p>🔍</p><input type='text' placeholder="Search"></input></div>
-        </form>
-      </section>
-      <ul></ul>
-      <div></div>
-      <button className="addbeer" onClick="">+</button>
-      </div>
+      <>
+        {this.state.flagForm === true ? <NewBeer/> :
+        <div>
+        <section>
+          <form>
+            <h1></h1>
+            <div><p>🔍</p><input type='text' placeholder="Search"></input></div>
+          </form>
+        </section>
+          <ul>
+            <BeersList beers={this.state.beers} deleteBeer={this.deleteBeer}/>
+          </ul>
+          <div></div>
+        </div>
+        }
+        <button className="addbeer" onClick={this.onChangeFlagForm}>+</button>
+      </>
      );
   }
 }
@@ -46,14 +95,16 @@ class Menu extends React.Component {
         Layer : MainPage
     })
   }
+
   handleklickBeers = () =>{
     this.setState({
         Layer : Beers
     })
   }
+
   whereBuy = () =>{
     this.setState({
-        Layer : WhereBuy
+        Layer : Profile
     })
     
   }

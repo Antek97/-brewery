@@ -19,6 +19,7 @@ class Profile extends React.Component {
 }
  
 class Beers extends React.Component {
+  counter = 3
   state = { 
     flagForm: false,
     beers:[
@@ -28,25 +29,45 @@ class Beers extends React.Component {
       styleBeer: 'IPA - American',
       brewery: 'Deer Bear',
       rating: 4.25,
-      dataAdd: null,
+      dataAdded: null,
       },{
       id:1,
       beerName: 'KAME HAME',
       styleBeer: 'IPA - Milkshake',
       brewery: 'Deer Bear',
       rating: 4,
-      dataAdd: null,
+      dataAdded: null,
       },{
       id:2,
       beerName: 'Noemi',
       styleBeer: 'IPA - Triple New England',
       brewery: 'Deer Bear',
       rating: 4.5,
-      dataAdd: null,
+      dataAdded: null,
       }
     ]
   }
-  deleteBeer = (id) => {
+
+  addBeer =( beerName, styleBeer, brewery, rating, dataAdded )=> {
+    const beer = {
+      id: this.counter,
+      beerName,
+      styleBeer,
+      brewery,
+      rating,
+      dataAdded,
+    }
+
+    this.counter++
+
+    this.setState( prevState => ({
+      beers: [...prevState.beers, beer]
+    }))
+
+    return true
+  }
+
+  deleteBeer = ( id ) => {
     const beers = [...this.state.beers]
     const index = beers.findIndex(beer => beer.id === id);
     beers.splice(index, 1);
@@ -64,7 +85,7 @@ class Beers extends React.Component {
   render() { 
     return (
       <>
-        {this.state.flagForm === true ? <NewBeer/> :
+        {this.state.flagForm === true ? <NewBeer add={this.addBeer}/> :
         <div>
         <section>
           <form>

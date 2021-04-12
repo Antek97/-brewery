@@ -55,19 +55,19 @@ class NewBeer extends React.Component {
 
   render() {
     return ( 
-      <div>
+      <div className="beerAddingPanel">
         <input type="text" placeholder="BeerName" value={this.state.beerName} onChange={this.handlechengeValueBeerName}></input>
         <input type="text" placeholder="BeerStyle" value={this.state.styleBeer} onChange={this.handlechengeValueBeerStyle}></input>
         <input type="text" placeholder="Brewery" value={this.state.brewery} onChange={this.handlechengeValueBrewery}></input>
-        <div>
-          1<input type="checkbox" value={this.state.rating}></input>
-          2<input type="checkbox" value={this.state.rating}></input>
-          3<input type="checkbox" value={this.state.rating}></input>
-          4<input type="checkbox" value={this.state.rating}></input>
-          5<input type="checkbox" value={this.state.rating}></input>
+        <div className="mainStarPanel">
+          <div className="mainStarPanel__oneStar" onClick={() => this.setState({rating:1})}>1</div>
+          <div className="mainStarPanel__twoStar" onClick={() => this.setState({rating:2})}>2</div>
+          <div className="mainStarPanel__threeStar" onClick={() => this.setState({rating:3})}>3</div>
+          <div className="mainStarPanel__fourStar" onClick={() => this.setState({rating:4})}>4</div>
+          <div className="mainStarPanel__fiveStar" onClick={() => this.setState({rating:5})}>5</div>
         </div>
-        <div>{this.state.dataAdded}</div>
-        <button onClick={this.handleClickAddBeer}>Add</button>
+        <div className="beerAddingPanel__Date">{this.state.dataAdded}</div>
+        <button className="beerAddingPanel__btnAdd" onClick={this.handleClickAddBeer}>Add</button>
         </div>
      );
   }

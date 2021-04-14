@@ -33,7 +33,7 @@ class Beers extends React.Component {
     flagForm: false,
     beers:[
       {
-      id:4,
+      id:0,
       beerName: 'Bloody IPA',
       styleBeer: 'IPA - American',
       brewery: 'Deer Bear',

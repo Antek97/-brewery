@@ -3,8 +3,11 @@ import Beer from './beer';
 
 const BeersList = (props) => {
   
-  const beers = props.beers.map(beer => <Beer key={beer.id} beer={beer} deleteBeer={props.deleteBeer}/>)
-  
+  const done = props.beers
+  done.sort((a,b) => b.id - a.id)
+  const beers = done.map(beer => <Beer key={beer.id} beer={beer} deleteBeer={props.deleteBeer}/>)
+ 
+ 
   return ( 
     <div>
       {beers}

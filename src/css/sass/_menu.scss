@@ -1,0 +1,32 @@
+.menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2px;
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height:15vh;
+  background: gray;
+  &__list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+  } 
+  &__btn {
+    display: border-box;
+    list-style: none;
+    flex-basis: 20%;
+    text-align: center;
+    margin: 0 30px ;
+    margin-bottom: 15px;
+    a{
+      font-size: 70px;
+      color: aliceblue;
+      
+    }
+  }
+  
+}

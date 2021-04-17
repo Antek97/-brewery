@@ -7,6 +7,7 @@
   height: 15vh;
   background-color: grey;
 }
+
 .topPanel{
   position: fixed;
   top: 0;
@@ -41,8 +42,61 @@
     border-radius: 4px;
   }
   &__input{
+    padding: 0;
+    border: 0;
     margin-left: 10px;
     font-size: 16px;
     padding-left: 4px;
   }
 }
+
+.addbeer{
+  width: 45px;
+  height: 45px;
+  z-index: 999;
+  position: fixed;
+  bottom: 140px;
+  right: 25px;
+  background-color: rgb(77, 73, 73);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.beerView{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  &__imageBeer{
+    width: 60px;
+    height: 50px;
+    background-color: black;
+    margin: 0 20px ;
+  }
+  &__container{
+    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+    padding: 3px;
+    flex-basis: 60%;
+  }
+     &__beerName{
+       font-size: 1.3rem;
+     }
+     &__styleBeer{
+      font-size: 1rem;
+     }
+     &__brewery{
+      font-size: 1rem;
+     }
+     &__rating{
+      font-size: 1rem;
+     }
+  &__btnDelete{
+    padding: 5px 2px;
+    padding: 0;
+    border: 0;
+    margin-left: 10px;
+    flex-basis: 20%;
+  }
+
+}
+      

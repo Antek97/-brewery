@@ -99,4 +99,82 @@
   }
 
 }
-      
+    
+.beerAddingPanel{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  &__imputsContainer{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    
+  }
+  &__BeerName{
+    padding:6px 4px;
+    border:0;
+    flex-basis: 70%;
+    margin: 23px auto;
+    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+  }
+  &__BeerStyle{
+    padding:6px 4px;
+    border:0;
+    flex-basis: 70%;
+    margin: 23px auto;
+    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+  }
+  &__Brewery{
+    padding:6px 4px;
+    border:0;
+    flex-basis: 70%;
+    margin: 23px auto;
+    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+  }
+  &__h1{
+    flex-basis: 100%;
+    margin: 10px;
+    text-align: center;
+  }
+  &__btnAdd{
+    margin:20px auto;
+    font-size: 2rem;
+    color: black;
+    background-color: transparent;
+    padding: 5px 10px;
+    border: 2px solid black;
+  }
+  &__Date{
+    margin-left: 30px;
+    text-align:justify;
+    flex-basis: 100%;
+  }
+}
+ 
+.mainStarPanel{
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  margin: 20px auto;
+  // &__oneStar{}
+  // &__twoStar{} 
+  // &__threeStar{} 
+  // &__fourStar{} 
+  // &__fiveStar{} 
+
+}
+
+.star{
+  width: 20px;
+  height: 20px;
+  background-color: gray;
+  margin: 0 10px;
+}
+.star:hover{
+  background-color: gold;
+}
+// bgc:#262626

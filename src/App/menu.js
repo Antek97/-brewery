@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/stylesApp.css';
-import '../css/style.css';
+// import '../css/style.css';
 import NewBeer from './addNewBeer';
 import BeersList from './BeersList';
 import Contact from './contactForm';
@@ -50,7 +50,7 @@ class Beers extends React.Component {
       beerName: 'Bloody IPA',
       styleBeer: 'IPA - American',
       brewery: 'Deer Bear',
-      rating: 4.25,
+      rating: 3,
       dataAdded: 3,
       },{
       id:1,
@@ -64,7 +64,7 @@ class Beers extends React.Component {
       beerName: 'Noemi',
       styleBeer: 'IPA - Triple New England',
       brewery: 'Deer Bear',
-      rating: 4.5,
+      rating: 5,
       dataAdded: 1,
       }
     ]

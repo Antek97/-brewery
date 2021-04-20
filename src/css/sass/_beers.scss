@@ -10,6 +10,7 @@
 
 .topPanel{
   position: fixed;
+  justify-content: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -17,7 +18,6 @@
   background-color: rgb(71, 207, 128);
  
   &__container{
-    
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -35,17 +35,18 @@
   &__search{
     display: flex;
     justify-content: center; 
-    width:70%;
-    font-size: 30px;
+    width:80%;
+    font-size: 1.3rem;
     background-color: #fff;
     padding: 6px 2px;
     border-radius: 4px;
   }
   &__input{
+    width: 80%;
     padding: 0;
     border: 0;
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 1rem;
     padding-left: 4px;
   }
 }
@@ -145,7 +146,7 @@
   &__btnAdd{
     margin:20px auto;
     font-size: 2rem;
-    color: black;
+    color: #262626;
     background-color: transparent;
     padding: 5px 10px;
     border: 2px solid black;

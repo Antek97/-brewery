@@ -1,4 +1,4 @@
-import Menu from './menu';
+import Menu from './App/menu';
 
 function App() {
   return (

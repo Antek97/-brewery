@@ -7,27 +7,41 @@ import Contact from './contactForm';
  
 class MainPage extends React.Component {
   state = {  }
+
   render() { 
-    return ( <div>2</div> );
+    return ( 
+    <div>
+      <section className="topPanel">
+    <div className="topPanel__options"></div>
+    <div></div>
+      </section>
+    </div> 
+    );
   }
 }
 
 class Profile extends React.Component {
   state = { 
     contact:false,
+    name: "Antek",
    }
+  SetAvatar=()=>{
+    console.log("hello")
+  };
+  
   render() { 
     return ( 
       <>
-        { this.state.contact === true ? <Contact/> :
           <div className="profileContainer">
             <div className="topPanelEmpty"></div>
             <section className="topPanel"></section>
             <div className="profilePanel">
-              <div className="profilePanel__img"></div>
-              <p className="profilePanel__name">Name</p>
-          </div>
-        </div> }
+              <div className="profilePanel__img">
+                <div className="profilePanel__AddImg" onClick={this.SetAvatar}></div>
+                </div>
+              <p className="profilePanel__name">{this.state.name}</p>
+            </div>
+        </div> 
         <button 
         className={this.state.contact === true ? "openContactForm" : "closeReactForm" } 
         onClick={()=>this.setState({contact:!this.state.contact})}>
@@ -122,7 +136,9 @@ class Beers extends React.Component {
             <form className="topPanel__container">
               <h1 className="topPanel__h1">Find</h1>
               <div className="topPanel__searchContainer">
-                <div className="topPanel__search"><p>🔍</p><input className="topPanel__input" type='text' placeholder="Search" onChange={this.searchBeer}></input></div>
+                <div className="topPanel__search">
+                  <p>🔍</p>
+                  <input className="topPanel__input" type='text' placeholder="Search" onChange={this.searchBeer}></input></div>
               </div>
             </form>
           </section>

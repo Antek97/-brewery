@@ -1,0 +1,85 @@
+.openContactForm{
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  padding: 5px 4px;
+  border: 0;
+  color: black;
+  border: 2px solid black ;
+  font-size: 2rem;
+}
+.closeReactForm{
+  font-size: 2rem;
+  color: black;
+  background-color: transparent;
+  padding: 5px 10px;
+  border: 2px solid black;
+}
+.messageConteiner{
+  margin-top: 80px;
+  width: 100%;
+  &__message{
+    width: 80%;
+  }
+  &__email{
+    width: 30%;
+  }
+  &__name{
+    width: 30%;
+  }
+  &____send{
+    padding: 5px 10px;
+    border: 2px solid black;
+    font-size: 2rem;
+  }
+}
+.topPanel{
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  &__options{
+    margin-right: 15%;
+    width: 30px;
+    height: 30px;
+    background-color:#0A9813;
+  }
+}
+
+.profilePanel{
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgba(78, 73, 73, 0.089);
+  &__img{
+    margin-top: 20px;
+    position:relative;
+    top:0;
+    left: 0;
+    width: 85px;
+    height: 85px;
+    background-color: green;
+    border-radius: 50%;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.753);
+  }
+  &__AddImg{
+    width: 50px;
+    height: 50px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    background-color: grey;
+    border-radius: 50%;
+ }
+ &__name{
+    font-size: 1.6rem;
+    flex-basis: 100%;
+    text-align: center;
+}
+}
+

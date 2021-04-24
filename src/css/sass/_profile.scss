@@ -11,6 +11,7 @@
   border: 2px solid black ;
   font-size: 2rem;
 }
+
 .closeReactForm{
   font-size: 2rem;
   color: black;
@@ -18,6 +19,7 @@
   padding: 5px 10px;
   border: 2px solid black;
 }
+
 .messageConteiner{
   margin-top: 80px;
   width: 100%;
@@ -36,6 +38,7 @@
     font-size: 2rem;
   }
 }
+
 .topPanel{
   display: flex;
   justify-content:flex-end;
@@ -50,7 +53,7 @@
 
 .profilePanel{
   width: 100%;
-  height: 20vh;
+  height: 23vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +68,13 @@
     height: 85px;
     background-color: green;
     border-radius: 50%;
-    box-shadow: 0 0 1em rgba(0, 0, 0, 0.753);
+    box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.753);
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+  }
+  &__BiWrench{
+    margin-top: 10%;
   }
   &__AddImg{
     width: 50px;
@@ -80,6 +89,29 @@
     font-size: 1.6rem;
     flex-basis: 100%;
     text-align: center;
+ }
 }
+
+.profile{
+  position: relative;
 }
+.hidePanel{
+  position: absolute;
+  top: 0;
+  left: -100vh;
+}
+.showPanel{
+  margin-top: 15vh;
+  position: absolute;
+  top:0;
+  left: 0;
+  &__imgChange{
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    border-radius: 50%;
+  }
+}
+
+
 

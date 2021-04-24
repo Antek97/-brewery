@@ -163,6 +163,7 @@
   flex-basis: 100%;
   justify-content: center;
   margin: 20px auto;
+  text-align: center;
   // &__oneStar{}
   // &__twoStar{} 
   // &__threeStar{} 
@@ -172,13 +173,12 @@
 }
 
 .star{
-  width: 20px;
-  height: 20px;
-  background-color: gray;
+  font-size: 2rem;
+  color: #262626;
   margin: 0 10px;
 }
 .star:hover{
-  background-color: gold;
+  color: gold;
 }
 
 // bgc:#262626

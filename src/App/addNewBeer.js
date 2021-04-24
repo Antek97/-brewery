@@ -1,6 +1,7 @@
 import React from 'react';
-import Menu from './menu'
-import App from '../App'
+import Menu from './menu';
+import App from '../App';
+import { AiFillStar } from "react-icons/ai";
 
 
 
@@ -52,7 +53,6 @@ class NewBeer extends React.Component {
         alert("Field cannot contain more than 12 characters")
       }
     }
-    
 
   render() {
     return ( 
@@ -66,11 +66,11 @@ class NewBeer extends React.Component {
           <input className="beerAddingPanel__Brewery" type="text" placeholder="Brewery" value={this.state.brewery} onChange={this.handlechengeValueBrewery}></input>
         </div>
         <div className="mainStarPanel">
-          <div className="mainStarPanel__oneStar star" onClick={() => this.setState({rating:1})}><i class="fas fa-star"></i></div>
-          <div className="mainStarPanel__twoStar star" onClick={() => this.setState({rating:2})}><i class="fas fa-star"></i></div>
-          <div className="mainStarPanel__threeStar star" onClick={() => this.setState({rating:3})}><i class="fas fa-star"></i></div>
-          <div className="mainStarPanel__fourStar star" onClick={() => this.setState({rating:4})}><i class="fas fa-star"></i></div>
-          <div className="mainStarPanel__fiveStar star" onClick={() => this.setState({rating:5})}><i class="fas fa-star"></i></div>
+          <div className="mainStarPanel__oneStar star" onClick={() => this.setState({rating:1})}><AiFillStar/></div>
+          <div className="mainStarPanel__twoStar star" onClick={() => this.setState({rating:2})}><AiFillStar/></div>
+          <div className="mainStarPanel__threeStar star" onClick={() => this.setState({rating:3})}><AiFillStar/></div>
+          <div className="mainStarPanel__fourStar star" onClick={() => this.setState({rating:4})}><AiFillStar/></div>
+          <div className="mainStarPanel__fiveStar star" onClick={() => this.setState({rating:5})}><AiFillStar/></div>
         </div>
         <button className="beerAddingPanel__btnAdd" onClick={this.handleClickAddBeer}>Add</button>
         <div className="beerAddingPanel__Date">{this.state.dataAdded}</div>

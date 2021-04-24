@@ -1,9 +1,10 @@
 import React from 'react';
 import '../css/stylesApp.css';
-// import '../css/style.css';
+import { BiWrench } from "react-icons/bi";
 import NewBeer from './addNewBeer';
 import BeersList from './BeersList';
 import Contact from './contactForm';
+
  
 class MainPage extends React.Component {
   state = {  }
@@ -22,22 +23,34 @@ class MainPage extends React.Component {
 
 class Profile extends React.Component {
   state = { 
+    addImg:false,
+    profileChange:false,
     contact:false,
     name: "Antek",
-   }
-  SetAvatar=()=>{
-    console.log("hello")
+  }
+
+  chengeDate =()=> {
+    this.setState({
+      profileChenge: !this.state.profileChange
+    })
   };
+
+  imgChenge =()=> {
+    this.setState({
+      addImg : !this.state.profileChange
+    })
+  }
   
   render() { 
+
     return ( 
-      <>
+      <section className="profile">
           <div className="profileContainer">
             <div className="topPanelEmpty"></div>
             <section className="topPanel"></section>
             <div className="profilePanel">
               <div className="profilePanel__img">
-                <div className="profilePanel__AddImg" onClick={this.SetAvatar}></div>
+                <div className="profilePanel__AddImg" onClick={this.chengeDate}><BiWrench className="profilePanel__BiWrench"/></div>
                 </div>
               <p className="profilePanel__name">{this.state.name}</p>
             </div>
@@ -47,7 +60,16 @@ class Profile extends React.Component {
         onClick={()=>this.setState({contact:!this.state.contact})}>
           {this.state.contact === true ? "X" : "Email"}
         </button>
-      </>
+
+        <div className={this.state.profileChenge === false ? "hidePanel" : "showPanel"}>
+          <div className="showPanel__imgChange"></div>
+          <p>Name</p>
+          <p>{this.state.name}</p>
+          <p>Gender</p>
+          <p>Male</p>  
+        </div>
+        
+      </section>
     );
   }
 }

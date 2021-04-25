@@ -1,8 +1,8 @@
 import React from 'react';
 import '../css/stylesApp.css';
-import { BiWrench } from "react-icons/bi";
+import { BiWrench, BiLeftArrow } from "react-icons/bi";
 import NewBeer from './addNewBeer';
-import BeersList from './BeersList';
+import BeersList from './beersList';
 import Contact from './contactForm';
 
  
@@ -31,7 +31,7 @@ class Profile extends React.Component {
 
   chengeDate =()=> {
     this.setState({
-      profileChenge: !this.state.profileChange
+      profileChange: !this.state.profileChange
     })
   };
 
@@ -47,7 +47,9 @@ class Profile extends React.Component {
       <section className="profile">
           <div className="profileContainer">
             <div className="topPanelEmpty"></div>
-            <section className="topPanel"></section>
+            <section className="topPanelProfile">
+              {this.state.profileChange === false ? null : <p onClick={this.chengeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
+            </section>
             <div className="profilePanel">
               <div className="profilePanel__img">
                 <div className="profilePanel__AddImg" onClick={this.chengeDate}><BiWrench className="profilePanel__BiWrench"/></div>
@@ -61,14 +63,16 @@ class Profile extends React.Component {
           {this.state.contact === true ? "X" : "Email"}
         </button>
 
-        <div className={this.state.profileChenge === false ? "hidePanel" : "showPanel"}>
-          <div className="showPanel__imgChange"></div>
-          <p>Name</p>
-          <p>{this.state.name}</p>
-          <p>Gender</p>
-          <p>Male</p>  
+        <div className={this.state.profileChange === false ? "hidePanel" : "showPanel"}>
+          <div className="PanelProfileOn">
+            <div className="PanelProfileOn__imgChange"></div>
+            <h1 className="PanelProfileOn__h1">Name</h1>
+            <p className="PanelProfileOn__text">{this.state.name}</p>
+            <h1 className="PanelProfileOn__h1">Gender</h1>
+            <p className="PanelProfileOn__text">Male</p> 
+          </div>
         </div>
-        
+
       </section>
     );
   }

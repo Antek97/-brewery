@@ -1,8 +1,11 @@
 import React from 'react';
 import Menu from './menu';
 import App from '../App';
-import { AiFillStar } from "react-icons/ai";
+import { BsStar } from "react-icons/bs";
+import { render } from '@testing-library/react';
 
+
+const starsNumber = 5;
 
 
 class NewBeer extends React.Component {
@@ -54,7 +57,20 @@ class NewBeer extends React.Component {
       }
     }
 
+    rate = star =>{
+      console.log(star)
+      this.setState({ rating : star });
+    }
+    
   render() {
+    let stars = []
+    for(let x = 1; x <= starsNumber; x++){
+      stars.push(
+        <div key={x} onClick={() => {this.rate(x)}}>
+          <StarRating filled={x <= this.state.rating ? true : false}  />
+        </div>
+      )
+    }
     return ( 
       <div className="beerAddingPanel">
         <div className="beerAddingPanel__imputsContainer">
@@ -66,11 +82,7 @@ class NewBeer extends React.Component {
           <input className="beerAddingPanel__Brewery" type="text" placeholder="Brewery" value={this.state.brewery} onChange={this.handlechengeValueBrewery}></input>
         </div>
         <div className="mainStarPanel">
-          <div className="mainStarPanel__oneStar star" onClick={() => this.setState({rating:1})}><AiFillStar/></div>
-          <div className="mainStarPanel__twoStar star" onClick={() => this.setState({rating:2})}><AiFillStar/></div>
-          <div className="mainStarPanel__threeStar star" onClick={() => this.setState({rating:3})}><AiFillStar/></div>
-          <div className="mainStarPanel__fourStar star" onClick={() => this.setState({rating:4})}><AiFillStar/></div>
-          <div className="mainStarPanel__fiveStar star" onClick={() => this.setState({rating:5})}><AiFillStar/></div>
+          {stars}
         </div>
         <button className="beerAddingPanel__btnAdd" onClick={this.handleClickAddBeer}>Add</button>
         <div className="beerAddingPanel__Date">{this.state.dataAdded}</div>
@@ -78,6 +90,14 @@ class NewBeer extends React.Component {
      );
   }
 }
+
+class StarRating extends React.Component {
+  state = {  }
+  render() { 
+    return (<div className={this.props.filled === true ? "starOn" : "starOff" }><BsStar/></div>);
+  }
+}
  
 export default NewBeer;
 
+     

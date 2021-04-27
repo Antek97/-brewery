@@ -1,15 +1,16 @@
 import React from 'react';
+import { BsStar } from "react-icons/bs";
 
 const Beer = (props) => {
   
   const {id, beerName, styleBeer, brewery, rating } = props.beer;
 
   const ratingStars = () => {
-      if(rating === 1) return(<div>🔥 💧 💧 💧 💧</div>)
-      else if(rating === 2 ) return(<div>🔥 🔥 💧 💧 💧</div>)
-      else if(rating === 3 ) return(<div>🔥 🔥 🔥 💧 💧</div>)
-      else if(rating === 4 ) return(<div>🔥 🔥 🔥 🔥 💧</div>)
-      else if(rating === 5 ) return(<div>🔥 🔥 🔥 🔥 🔥</div>)
+      if(rating === 1) return(<div><BsStar className="starFull"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/></div>)
+      else if(rating === 2 ) return(<div><BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/></div>)
+      else if(rating === 3 ) return(<div><BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/></div>)
+      else if(rating === 4 ) return(<div><BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starEmpty"/></div>)
+      else if(rating === 5 ) return(<div><BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starFull"/> <BsStar className="starFull"/></div>)
     }
 
   return ( 

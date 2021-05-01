@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/stylesApp.css';
-import { BiWrench, BiLeftArrow } from "react-icons/bi";
+import { BiWrench, BiLeftArrow, BiToggleLeft, BiToggleRight } from "react-icons/bi";
+import { AiFillSetting } from "react-icons/ai";
 import NewBeer from './addNewBeer';
 import BeersList from './beersList';
 import Contact from './contactForm';
@@ -12,10 +13,22 @@ class MainPage extends React.Component {
   render() { 
     return ( 
     <div>
-      <section className="topPanel">
-    <div className="topPanel__options"></div>
-    <div></div>
+      <section className="MainTopPanel">
+        <div className="MainTopPanel__options">
+          <div className="MainTopPanel__optionsBtn">
+              <AiFillSetting/>
+            </div>
+        </div>
+        <div>
+            <BiToggleLeft/>
+            <BiToggleRight/>
+        </div>
       </section>
+      <div className></div>
+        <section className="MainPageContainer">
+          <h1 className="MainPageContainer__VlogTitle">hello</h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </section>
     </div> 
     );
   }

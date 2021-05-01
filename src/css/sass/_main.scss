@@ -1,0 +1,34 @@
+.MainTopPanel{
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  background-color: rgb(71, 207, 128);
+  &__options{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 15vh;
+    margin-right: 5%;
+  }
+  &__optionsBtn{
+    font-size: 3.0rem;
+    color: rgb(42, 131, 79);;
+    background-color: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.MainPageContainer{
+  margin-top: 15vh;
+  background-color: red;
+  &__VlogTitle{
+    padding:20px 0 ;
+    text-align: center;
+    font-size: 2.3rem;
+  }
+}

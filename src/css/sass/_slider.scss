@@ -1,62 +1,7 @@
-@import "mainVariables" ;
+@import "variables" ;
 
-
-// .slider{
-//   width: $image-width;
-//   height: 20vh;
-//   position: relative;
-//   top:0;
-//   left: 0;
-//   max-width: $image-width;
-//   margin:0 auto;
-//   &__imagesContainer{
-//     position:relative;
-//     width:100%;
-//     padding-bottom:$image-height;
-//   }
-//   &__imageContainer{
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     height: 100%;
-//     overflow: hidden;
-//     img{
-//       top: 50%;
-//       transform: translateY(-50%);
-//       width: $image-width;
-//       position: absolute;
-//       user-select: none;
-//     }
-//   } 
-//   &__imageContainerFirst{
-//     width: 100%;
-//   }
-//   &__imageContainerSecond{
-//     width: 80%; 
-//   }
-
-
-//   &__divider{
-//     position: absolute;
-//     width: 2px;
-//     height: 100%;
-//     top: 0;
-//     left: 50%;
-//     transform: translateY(-50%);
-//     background: gold;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-//   &__handle{
-//     display: flex;
-//     align-items: center;
-//     justify-items: center;
-//     font-size: 3.7rem;
-//     color: gold;
-//   }
-// }
 .slider{
+  position: relative;
   max-width: $image-width;
   margin:0 auto;
   &__imagesContainer{
@@ -75,14 +20,19 @@
       transform: translateY(-50%);
       width: $image-width;
       position: absolute;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
       user-select: none;
     }
   } 
   &__imageContainerFirst{
     width: 100%;
+    background:gray;
   }
   &__imageContainerSecond{
-    width: 80%; 
+    // width: 50%; 
+    background: #000;
   }
 
   &__divider{
@@ -91,7 +41,7 @@
     height: 100%;
     top: 0;
     left: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
     background: gold;
     display: flex;
     align-items: center;

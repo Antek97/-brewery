@@ -5,7 +5,7 @@ import { AiFillSetting } from "react-icons/ai";
 import NewBeer from './addNewBeer';
 import BeersList from './beersList';
 import Contact from './contactForm';
-import Slider from './slider'
+import DescriptionApp from './descriptionApp';
 
  
 class MainPage extends React.Component {
@@ -27,10 +27,8 @@ class MainPage extends React.Component {
       </section>
       <div className=""></div>
         <section className="MainPageContainer">
-          <h1 className="MainPageContainer__VlogTitle">hello</h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <DescriptionApp/>
         </section>
-        <Slider/>
     </div> 
     );
   }

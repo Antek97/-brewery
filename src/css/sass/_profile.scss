@@ -39,7 +39,6 @@
   }
 }
 
-
 .topPanelProfile{
   display: flex;
   justify-content:flex-end;
@@ -72,7 +71,6 @@
     
   }
 }
-
 
 .profilePanel{
   width: 100%;
@@ -109,6 +107,7 @@
     border-radius: 50%;
  }
  &__name{
+    font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     flex-basis: 100%;
     text-align: center;

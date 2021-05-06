@@ -1,7 +1,10 @@
 import React from 'react';
+
 import '../css/stylesApp.css';
+
 import { BiWrench, BiLeftArrow, BiToggleLeft, BiToggleRight } from "react-icons/bi";
 import { AiFillSetting } from "react-icons/ai";
+
 import NewBeer from './addNewBeer';
 import BeersList from './beersList';
 import Contact from './contactForm';
@@ -36,7 +39,8 @@ class MainPage extends React.Component {
 
 class Profile extends React.Component {
   state = { 
-    addImg:false,
+    profileImg:"",
+    addImg:null,
     profileChange:false,
     contact:false,
     name: "Antek",
@@ -53,8 +57,20 @@ class Profile extends React.Component {
       addImg : !this.state.profileChange
     })
   }
-  
+
+  onChangeImg =(e)=> {
+    const reader = new FileReader();
+    reader.onload =()=> {
+      if(reader.readyState === 2){
+        this.setState({profileImg : reader.result})
+    }
+  }
+  reader.readAsDataURL(e.target.files[0])
+}
+
   render() { 
+
+    const {profileImg} = this.state
 
     return ( 
       <section className="profile">
@@ -65,20 +81,23 @@ class Profile extends React.Component {
             </section>
             <div className="profilePanel">
               <div className="profilePanel__img">
+              <img src={profileImg} alt="" id="img"></img>
                 <div className="profilePanel__AddImg" onClick={this.chengeDate}><BiWrench className="profilePanel__BiWrench"/></div>
                 </div>
               <p className="profilePanel__name">{this.state.name}</p>
             </div>
         </div> 
         <button 
-        className={this.state.contact === true ? "openContactForm" : "closeReactForm" } 
+        className={this.state.contact ? "openContactForm" : "closeReactForm" } 
         onClick={()=>this.setState({contact:!this.state.contact})}>
-          {this.state.contact === true ? "X" : "Email"}
+          {this.state.contact ? "X" : "Email"}
         </button>
-
         <div className={this.state.profileChange === false ? "hidePanel" : "showPanel"}>
           <div className="PanelProfileOn">
-            <div className="PanelProfileOn__imgChange"></div>
+            <div className="PanelProfileOn__imgChange">
+            <input type="file" value={profileImg} onChange={this.onChangeImg} id="avatar" name="image-upload" accept="image/*"></input>  
+            <label htmlFor="avatar">dodaj cos</label>
+            </div>
             <h1 className="PanelProfileOn__h1">Name</h1>
             <p className="PanelProfileOn__text">{this.state.name}</p>
             <h1 className="PanelProfileOn__h1">Gender</h1>
@@ -168,7 +187,7 @@ class Beers extends React.Component {
   render() { 
     return (
       <>
-        {this.state.flagForm === true ? <NewBeer add={this.addBeer}/> :
+        {this.state.flagForm ? <NewBeer add={this.addBeer}/> :
         <div className="beersContainer">
           <div className="topPanelEmpty"></div>
           <section className="topPanel">

@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { BsStar } from "react-icons/bs";
 
-const Beer = (props) => {
+
+const Beer = ( props ) => {
   
   const {id, beerName, styleBeer, brewery, rating } = props.beer;
 

@@ -1,6 +1,8 @@
 import React from 'react';
+
 import Menu from './menu';
 import App from '../App';
+
 import { BsStar } from "react-icons/bs";
 import { render } from '@testing-library/react';
 
@@ -18,19 +20,19 @@ class NewBeer extends React.Component {
     dataAdded: new Date().toISOString().slice(0,10),
     }
 
-    handlechengeValueBeerName =(e)=> {
+    handlechengeValueBeerName =( e )=> {
       this.setState({
         beerName: e.target.value
       })
     }
 
-    handlechengeValueBeerStyle =(e)=> {
+    handlechengeValueBeerStyle =( e )=> {
       this.setState({
         styleBeer: e.target.value
       })
     }
 
-    handlechengeValueBrewery =(e)=> {
+    handlechengeValueBrewery =( e )=> {
       this.setState({
         brewery: e.target.value
       })
@@ -39,11 +41,14 @@ class NewBeer extends React.Component {
     handleClickAddBeer =()=> {
 
       const { beerName, styleBeer, brewery, rating, dataAdded } = this.state;
+      
       if (beerName.length < 12 && styleBeer.length < 12 && brewery.length < 12 &&
         beerName.length >= 1 && styleBeer.length >= 1 && brewery.length >= 1) {
         const add = this.props.add(beerName, styleBeer, brewery, rating, dataAdded)
-
-        if (add) {
+        if(rating === ''){
+          alert("the rating is empty")
+        }
+        else if (add) {
           this.setState({
             beerName:'',
             styleBeer:'',
@@ -52,13 +57,14 @@ class NewBeer extends React.Component {
             dataAdded: new Date().toISOString().slice(0,10),
           })
         }
-      }else{
+      }
+      else{
         alert("Field cannot contain more than 12 characters")
       }
     }
+    
 
     rate = star =>{
-      console.log(star)
       this.setState({ rating : star });
     }
     
@@ -86,7 +92,7 @@ class NewBeer extends React.Component {
         </div>
         <button className="beerAddingPanel__btnAdd" onClick={this.handleClickAddBeer}>Add</button>
         <div className="beerAddingPanel__Date">{this.state.dataAdded}</div>
-        </div>
+      </div>
      );
   }
 }
@@ -94,7 +100,7 @@ class NewBeer extends React.Component {
 class StarRating extends React.Component {
   state = {  }
   render() { 
-    return (<div className={this.props.filled === true ? "starOn" : "starOff" }><BsStar/></div>);
+    return (<div className={this.props.filled ? "starOn" : "starOff" }><BsStar/></div>);
   }
 }
  

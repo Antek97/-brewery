@@ -73,6 +73,9 @@
 }
 
 .profilePanel{
+  position: absolute;
+  top: 15vh;
+  left: 0;
   width: 100%;
   height: 23vh;
   display: flex;
@@ -80,7 +83,7 @@
   align-items: center;
   flex-wrap: wrap;
   background-color: rgba(78, 73, 73, 0.089);
-  &__img{
+  &__imgContainer{
     margin-top: 10%;
     position:relative;
     top:0;
@@ -89,10 +92,18 @@
     height: 85px;
     background-color: green;
     border-radius: 50%;
-    // box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.753);
     text-align: center;
     color: white;
     font-size: 2.5rem;
+    border: 4px solid black;
+  }
+  &__img{
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 85px;
+    height: 85px;
   }
   &__BiWrench{
     margin-top: 10%;
@@ -103,8 +114,10 @@
     position:absolute;
     top: 50%;
     left: 50%;
-    background-color: grey;
+    background-color: white;
+    color: black;
     border-radius: 50%;
+    border: 4px solid black;
  }
  &__name{
     font-family: 'Roboto', sans-serif;
@@ -128,6 +141,7 @@
 }
 
 .showPanel{
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -136,7 +150,6 @@
   left: 0;
   margin-top: 15vh;
   background-color: white;
-  padding: 0 20px 0 20px;
   height: 75vh;
 }
 
@@ -144,12 +157,22 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
+  margin: 0 5% 0 5%;
   &__imgChange{
-    margin: 10% 0 10% 0 ;
-    width: 80px;
-    height: 80px;
-    background-color: gray;
-    border-radius: 50%;
+    font-family: 'Roboto', sans-serif;
+    input{
+      display: none;
+    }
+  }
+  &__label{
+    display: block;
+    margin:45px auto;
+    font-size: 2rem;
+    color: #262626;
+    background-color: transparent;
+    padding: 5px 10px;
+    border: 2px solid black;
   }
   &__h1{
     flex-basis: 100%;
@@ -164,6 +187,5 @@
   }
   
 }
-
 
 

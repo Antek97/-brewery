@@ -39,7 +39,7 @@ class MainPage extends React.Component {
 
 class Profile extends React.Component {
   state = { 
-    profileImg:"",
+    profileImg:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwEuOE-oE-M5EGrxJAJJglaRMB9h-DEltpj6LfTi0GCCiWCqHd-oJZ_Q5pzlKMkm2RCQ&usqp=CAU",
     addImg:null,
     profileChange:false,
     contact:false,
@@ -58,7 +58,7 @@ class Profile extends React.Component {
     })
   }
 
-  onChangeImg =(e)=> {
+  onChangeImg =( e )=> {
     const reader = new FileReader();
     reader.onload =()=> {
       if(reader.readyState === 2){
@@ -66,12 +66,13 @@ class Profile extends React.Component {
     }
   }
   reader.readAsDataURL(e.target.files[0])
+  alert("avatar changed")
 }
 
   render() { 
 
     const {profileImg} = this.state
-
+    
     return ( 
       <section className="profile">
           <div className="profileContainer">
@@ -80,23 +81,18 @@ class Profile extends React.Component {
               {this.state.profileChange === false ? null : <p onClick={this.chengeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
             </section>
             <div className="profilePanel">
-              <div className="profilePanel__img">
-              <img src={profileImg} alt="" id="img"></img>
+              <div className="profilePanel__imgContainer">
+              <img src={profileImg} alt="" id="img" draggable="false" className="profilePanel__img"></img>
                 <div className="profilePanel__AddImg" onClick={this.chengeDate}><BiWrench className="profilePanel__BiWrench"/></div>
                 </div>
               <p className="profilePanel__name">{this.state.name}</p>
             </div>
         </div> 
-        <button 
-        className={this.state.contact ? "openContactForm" : "closeReactForm" } 
-        onClick={()=>this.setState({contact:!this.state.contact})}>
-          {this.state.contact ? "X" : "Email"}
-        </button>
         <div className={this.state.profileChange === false ? "hidePanel" : "showPanel"}>
           <div className="PanelProfileOn">
             <div className="PanelProfileOn__imgChange">
-            <input type="file" value={profileImg} onChange={this.onChangeImg} id="avatar" name="image-upload" accept="image/*"></input>  
-            <label htmlFor="avatar">dodaj cos</label>
+              <input type="file" onChange={this.onChangeImg} id="avatar" name="image-upload" accept="image/*"></input>  
+              <label className="PanelProfileOn__label" htmlFor="avatar">Add picture</label>
             </div>
             <h1 className="PanelProfileOn__h1">Name</h1>
             <p className="PanelProfileOn__text">{this.state.name}</p>
@@ -110,7 +106,7 @@ class Profile extends React.Component {
   }
 }
 
- 
+
 class Beers extends React.Component {
   counter = 3
   state = { 
@@ -161,11 +157,10 @@ class Beers extends React.Component {
     return true
   }
 
-  searchBeer =(e)=> {
+  searchBeer =( e )=> {
     this.setState({
       search: e.target.value
     })
-    console.log(this.state.search)
     //filtr()
   }
 
@@ -185,6 +180,7 @@ class Beers extends React.Component {
   }
 
   render() { 
+
     return (
       <>
         {this.state.flagForm ? <NewBeer add={this.addBeer}/> :

@@ -106,7 +106,6 @@ class Profile extends React.Component {
   }
 }
 
-
 class Beers extends React.Component {
   counter = 3
   state = { 
@@ -120,6 +119,7 @@ class Beers extends React.Component {
       brewery: 'Deer Bear',
       rating: 3,
       dataAdded: 3,
+      bearImg: 'https://thumbs.dreamstime.com/b/szk%C5%82o-piwo-z-piany-linii-ikon%C4%85-kubek-zimnego-piwa-wektorowa-ilustracja-odizolowywaj%C4%85ca-na-bielu-piwny-spienia-kontur-125545431.jpg',
       },{
       id:1,
       beerName: 'KAME HAME',
@@ -127,6 +127,7 @@ class Beers extends React.Component {
       brewery: 'Deer Bear',
       rating: 4,
       dataAdded: 2,
+      bearImg: 'https://thumbs.dreamstime.com/b/szk%C5%82o-piwo-z-piany-linii-ikon%C4%85-kubek-zimnego-piwa-wektorowa-ilustracja-odizolowywaj%C4%85ca-na-bielu-piwny-spienia-kontur-125545431.jpg',
       },{
       id:2,
       beerName: 'Noemi',
@@ -134,18 +135,19 @@ class Beers extends React.Component {
       brewery: 'Deer Bear',
       rating: 5,
       dataAdded: 1,
+      bearImg: 'https://thumbs.dreamstime.com/b/szk%C5%82o-piwo-z-piany-linii-ikon%C4%85-kubek-zimnego-piwa-wektorowa-ilustracja-odizolowywaj%C4%85ca-na-bielu-piwny-spienia-kontur-125545431.jpg',
       }
     ]
   }
 
-  addBeer =( beerName, styleBeer, brewery, rating, dataAdded )=> {
+  addBeer =( beerName, styleBeer, brewery, rating, bearImg )=> {
     const beer = {
       id: this.counter,
       beerName,
       styleBeer,
       brewery,
       rating,
-      dataAdded,
+      bearImg,
     }
 
     this.counter++
@@ -208,7 +210,6 @@ class Beers extends React.Component {
   }
 }
  
-
 class Menu extends React.Component {
   state = { 
     Layer : MainPage

@@ -5,7 +5,7 @@ import { BsStar } from "react-icons/bs";
 
 const Beer = ( props ) => {
   
-  const {id, beerName, styleBeer, brewery, rating } = props.beer;
+  const {id, beerName, styleBeer, brewery, rating, bearImg } = props.beer;
 
   const ratingStars = () => {
       if(rating === 1) return(<div><BsStar className="starFull"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/> <BsStar className="starEmpty"/></div>)
@@ -17,7 +17,7 @@ const Beer = ( props ) => {
 
   return ( 
     <div className="beerView">
-       <div className="beerView__imageBeer"></div>
+       <img src={bearImg} alt="" id="img" draggable="false" className="beerView__imageBeer"></img>
        <div className="beerView__container">
           <h1 className="beerView__beerName">{beerName}</h1>
           <p className="beerView__styleBeer">{styleBeer}</p>

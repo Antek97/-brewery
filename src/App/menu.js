@@ -44,17 +44,30 @@ class Profile extends React.Component {
     profileChange:false,
     contact:false,
     name: "Antek",
+    gender:"Male",
   }
 
   chengeDate =()=> {
     this.setState({
-      profileChange: !this.state.profileChange
+      profileChange: !this.state.profileChange,
     })
   };
 
+  chengeName =( e )=> {
+    this.setState({
+      name: e.target.value
+    })
+  }
+  chengeGender =( e )=> {
+    this.setState({
+      gender: e.target.value,
+    })
+  }
+  
+
   imgChenge =()=> {
     this.setState({
-      addImg : !this.state.profileChange
+      addImg : !this.state.profileChange,
     })
   }
 
@@ -87,7 +100,14 @@ class Profile extends React.Component {
                 </div>
               <p className="profilePanel__name">{this.state.name}</p>
             </div>
+            <div className="">
+              <h1 className="">Name</h1>
+              <p className="">{this.state.name}</p>
+              <h1 className="">Gender</h1>
+              <p className="">{this.state.gender}</p> 
+            </div>
         </div> 
+
         <div className={this.state.profileChange === false ? "hidePanel" : "showPanel"}>
           <div className="PanelProfileOn">
             <div className="PanelProfileOn__imgChange">
@@ -95,9 +115,11 @@ class Profile extends React.Component {
               <label className="PanelProfileOn__label" htmlFor="avatar">Add picture</label>
             </div>
             <h1 className="PanelProfileOn__h1">Name</h1>
-            <p className="PanelProfileOn__text">{this.state.name}</p>
+            {/* <p className="PanelProfileOn__text">{this.state.name}</p> */}
+            <input className="PanelProfileOn__text" type="text" placeholder={this.state.name} value={this.state.name} onChange={this.chengeName}></input>
             <h1 className="PanelProfileOn__h1">Gender</h1>
-            <p className="PanelProfileOn__text">Male</p> 
+            {/* <p className="PanelProfileOn__text">{this.state.gender}</p> */}
+            <input className="PanelProfileOn__text" type="text" placeholder={this.state.gender} value={this.state.gender} onChange={this.chengeGender}></input> 
           </div>
         </div>
 
@@ -109,7 +131,7 @@ class Profile extends React.Component {
 class Beers extends React.Component {
   counter = 3
   state = { 
-    search:null,
+    search:'',
     flagForm: false,
     beers:[
       {
@@ -161,9 +183,8 @@ class Beers extends React.Component {
 
   searchBeer =( e )=> {
     this.setState({
-      search: e.target.value
+      search: e.target.value,
     })
-    //filtr()
   }
 
   deleteBeer =( id )=> {
@@ -171,7 +192,7 @@ class Beers extends React.Component {
     const index = beers.findIndex(beer => beer.id === id);
     beers.splice(index, 1);
     this.setState({
-      beers
+      beers,
     })
   }
 

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+
+import { AppContext, defaultObiect } from '../AppContext';
 
 import '../css/stylesApp.css';
 
@@ -11,7 +13,7 @@ import Contact from './contactForm';
 import DescriptionApp from './descriptionApp';
 
  
-class MainPage extends React.Component {
+class MainPage extends PureComponent {
   state = {  }
 
   render() { 
@@ -37,17 +39,19 @@ class MainPage extends React.Component {
   }
 }
 
-class Profile extends React.Component {
+class Profile extends PureComponent {
+  static contextType = AppContext;
   state = { 
     profileImg:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwEuOE-oE-M5EGrxJAJJglaRMB9h-DEltpj6LfTi0GCCiWCqHd-oJZ_Q5pzlKMkm2RCQ&usqp=CAU",
     addImg:null,
     profileChange:false,
-    contact:false,
-    name: "Antek",
-    gender:"Male",
+    name: defaultObiect.name,
+    gender:defaultObiect.gender,
+    rating: defaultObiect.beers,
   }
 
   chengeDate =()=> {
+
     this.setState({
       profileChange: !this.state.profileChange,
     })
@@ -58,13 +62,13 @@ class Profile extends React.Component {
       name: e.target.value
     })
   }
+
   chengeGender =( e )=> {
     this.setState({
       gender: e.target.value,
     })
   }
   
-
   imgChenge =()=> {
     this.setState({
       addImg : !this.state.profileChange,
@@ -83,32 +87,38 @@ class Profile extends React.Component {
 }
 
   render() { 
+   
+    const {profileImg, addImg, profileChange, name, gender, rating} = this.state
 
-    const {profileImg} = this.state
-    
+
+    //Ratting(js)
+    rating.map(e => {
+      console.log(e.rating)
+    });
+  
     return ( 
       <section className="profile">
           <div className="profileContainer">
             <div className="topPanelEmpty"></div>
             <section className="topPanelProfile">
-              {this.state.profileChange === false ? null : <p onClick={this.chengeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
+              {profileChange === false ? null : <p onClick={this.chengeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
             </section>
             <div className="profilePanel">
               <div className="profilePanel__imgContainer">
               <img src={profileImg} alt="" id="img" draggable="false" className="profilePanel__img"></img>
                 <div className="profilePanel__AddImg" onClick={this.chengeDate}><BiWrench className="profilePanel__BiWrench"/></div>
                 </div>
-              <p className="profilePanel__name">{this.state.name}</p>
+              <p className="profilePanel__name">{name}</p>
             </div>
             <div className="">
               <h1 className="">Name</h1>
-              <p className="">{this.state.name}</p>
+              <p className="">{name}</p>
               <h1 className="">Gender</h1>
-              <p className="">{this.state.gender}</p> 
+              <p className="">{gender}</p> 
             </div>
         </div> 
 
-        <div className={this.state.profileChange === false ? "hidePanel" : "showPanel"}>
+        <div className={profileChange === false ? "hidePanel" : "showPanel"}>
           <div className="PanelProfileOn">
             <div className="PanelProfileOn__imgChange">
               <input type="file" onChange={this.onChangeImg} id="avatar" name="image-upload" accept="image/*"></input>  
@@ -116,10 +126,10 @@ class Profile extends React.Component {
             </div>
             <h1 className="PanelProfileOn__h1">Name</h1>
             {/* <p className="PanelProfileOn__text">{this.state.name}</p> */}
-            <input className="PanelProfileOn__text" type="text" placeholder={this.state.name} value={this.state.name} onChange={this.chengeName}></input>
+            <input className="PanelProfileOn__text" type="text" placeholder={name} value={name} onChange={this.chengeName}></input>
             <h1 className="PanelProfileOn__h1">Gender</h1>
             {/* <p className="PanelProfileOn__text">{this.state.gender}</p> */}
-            <input className="PanelProfileOn__text" type="text" placeholder={this.state.gender} value={this.state.gender} onChange={this.chengeGender}></input> 
+            <input className="PanelProfileOn__text" type="text" placeholder={gender} value={gender} onChange={this.chengeGender}></input> 
           </div>
         </div>
 
@@ -128,38 +138,16 @@ class Profile extends React.Component {
   }
 }
 
-class Beers extends React.Component {
+class Beers extends PureComponent {
+  
   counter = 3
+
+  static contextType = AppContext;
+
   state = { 
     search:'',
     flagForm: false,
-    beers:[
-      {
-      id:0,
-      beerName: 'Bloody IPA',
-      styleBeer: 'IPA - American',
-      brewery: 'Deer Bear',
-      rating: 3,
-      dataAdded: 3,
-      bearImg: 'https://thumbs.dreamstime.com/b/szk%C5%82o-piwo-z-piany-linii-ikon%C4%85-kubek-zimnego-piwa-wektorowa-ilustracja-odizolowywaj%C4%85ca-na-bielu-piwny-spienia-kontur-125545431.jpg',
-      },{
-      id:1,
-      beerName: 'KAME HAME',
-      styleBeer: 'IPA - Milkshake',
-      brewery: 'Deer Bear',
-      rating: 4,
-      dataAdded: 2,
-      bearImg: 'https://thumbs.dreamstime.com/b/szk%C5%82o-piwo-z-piany-linii-ikon%C4%85-kubek-zimnego-piwa-wektorowa-ilustracja-odizolowywaj%C4%85ca-na-bielu-piwny-spienia-kontur-125545431.jpg',
-      },{
-      id:2,
-      beerName: 'Noemi',
-      styleBeer: 'IPA - Triple New England',
-      brewery: 'Deer Bear',
-      rating: 5,
-      dataAdded: 1,
-      bearImg: 'https://thumbs.dreamstime.com/b/szk%C5%82o-piwo-z-piany-linii-ikon%C4%85-kubek-zimnego-piwa-wektorowa-ilustracja-odizolowywaj%C4%85ca-na-bielu-piwny-spienia-kontur-125545431.jpg',
-      }
-    ]
+    beers: defaultObiect.beers,
   }
 
   addBeer =( beerName, styleBeer, brewery, rating, bearImg )=> {
@@ -231,7 +219,7 @@ class Beers extends React.Component {
   }
 }
  
-class Menu extends React.Component {
+class Menu extends PureComponent {
   state = { 
     Layer : MainPage
    }

@@ -29,19 +29,4 @@ class App extends PureComponent {
 export default App;
 
 
-// function App() {
-//   return (
-//     <AppContext.Provider value={{
-//       test: this.state.test,
-//       usserLogged: this.state.usserLogged,
-//       id: this.state.id,
-//       name: this.state.name,
-//     }}>
-
-//       <Menu/>
-//     </AppContext.Provider>
-//   );
-// }
-
-// export default App;
 

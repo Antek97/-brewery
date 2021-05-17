@@ -9,7 +9,6 @@ import { AiFillSetting } from "react-icons/ai";
 
 import NewBeer from './addNewBeer';
 import BeersList from './beersList';
-import Contact from './contactForm';
 import DescriptionApp from './descriptionApp';
 
  
@@ -25,115 +24,12 @@ class MainPage extends PureComponent {
               <AiFillSetting/>
             </div>
         </div>
-        <div>
-            <BiToggleLeft/>
-            <BiToggleRight/>
-        </div>
       </section>
       <div className=""></div>
         <section className="MainPageContainer">
           <DescriptionApp/>
         </section>
     </div> 
-    );
-  }
-}
-
-class Profile extends PureComponent {
-  static contextType = AppContext;
-  state = { 
-    profileImg:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwEuOE-oE-M5EGrxJAJJglaRMB9h-DEltpj6LfTi0GCCiWCqHd-oJZ_Q5pzlKMkm2RCQ&usqp=CAU",
-    addImg:null,
-    profileChange:false,
-    name: defaultObiect.name,
-    gender:defaultObiect.gender,
-    rating: defaultObiect.beers,
-  }
-
-  chengeDate =()=> {
-
-    this.setState({
-      profileChange: !this.state.profileChange,
-    })
-  };
-
-  chengeName =( e )=> {
-    this.setState({
-      name: e.target.value
-    })
-  }
-
-  chengeGender =( e )=> {
-    this.setState({
-      gender: e.target.value,
-    })
-  }
-  
-  imgChenge =()=> {
-    this.setState({
-      addImg : !this.state.profileChange,
-    })
-  }
-
-  onChangeImg =( e )=> {
-    const reader = new FileReader();
-    reader.onload =()=> {
-      if(reader.readyState === 2){
-        this.setState({profileImg : reader.result})
-    }
-  }
-  reader.readAsDataURL(e.target.files[0])
-  alert("avatar changed")
-}
-
-  render() { 
-   
-    const {profileImg, addImg, profileChange, name, gender, rating} = this.state
-
-
-    //Ratting(js)
-    rating.map(e => {
-      console.log(e.rating)
-    });
-  
-    return ( 
-      <section className="profile">
-          <div className="profileContainer">
-            <div className="topPanelEmpty"></div>
-            <section className="topPanelProfile">
-              {profileChange === false ? null : <p onClick={this.chengeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
-            </section>
-            <div className="profilePanel">
-              <div className="profilePanel__imgContainer">
-              <img src={profileImg} alt="" id="img" draggable="false" className="profilePanel__img"></img>
-                <div className="profilePanel__AddImg" onClick={this.chengeDate}><BiWrench className="profilePanel__BiWrench"/></div>
-                </div>
-              <p className="profilePanel__name">{name}</p>
-            </div>
-            <div className="">
-              <h1 className="">Name</h1>
-              <p className="">{name}</p>
-              <h1 className="">Gender</h1>
-              <p className="">{gender}</p> 
-            </div>
-        </div> 
-
-        <div className={profileChange === false ? "hidePanel" : "showPanel"}>
-          <div className="PanelProfileOn">
-            <div className="PanelProfileOn__imgChange">
-              <input type="file" onChange={this.onChangeImg} id="avatar" name="image-upload" accept="image/*"></input>  
-              <label className="PanelProfileOn__label" htmlFor="avatar">Add picture</label>
-            </div>
-            <h1 className="PanelProfileOn__h1">Name</h1>
-            {/* <p className="PanelProfileOn__text">{this.state.name}</p> */}
-            <input className="PanelProfileOn__text" type="text" placeholder={name} value={name} onChange={this.chengeName}></input>
-            <h1 className="PanelProfileOn__h1">Gender</h1>
-            {/* <p className="PanelProfileOn__text">{this.state.gender}</p> */}
-            <input className="PanelProfileOn__text" type="text" placeholder={gender} value={gender} onChange={this.chengeGender}></input> 
-          </div>
-        </div>
-
-      </section>
     );
   }
 }
@@ -216,6 +112,103 @@ class Beers extends PureComponent {
         <button className="addbeer" onClick={this.onChangeFlagForm}>+</button>
       </>
      );
+  }
+}
+
+class Profile extends PureComponent {
+  static contextType = AppContext;
+
+  state = { 
+    profileImg:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwEuOE-oE-M5EGrxJAJJglaRMB9h-DEltpj6LfTi0GCCiWCqHd-oJZ_Q5pzlKMkm2RCQ&usqp=CAU",
+    addImg:null,
+    profileChange:false,
+    name: defaultObiect.name,
+    gender:defaultObiect.gender,
+    rating: defaultObiect.beers,
+  }
+
+  chengeDate =()=> {
+    this.setState({
+      profileChange: !this.state.profileChange,
+    })
+  }
+
+  chengeName =( e )=> {
+    this.setState({
+      name: e.target.value
+    })
+  }
+
+  chengeGender =( e )=> {
+    this.setState({
+      gender: e.target.value,
+    })
+  }
+  
+  imgChenge =()=> {
+    this.setState({
+      addImg : !this.state.profileChange,
+    })
+  }
+
+  onChangeImg =( e )=> {
+    const reader = new FileReader();
+    reader.onload =()=> {
+      if(reader.readyState === 2){
+        this.setState({profileImg : reader.result})
+    }
+  }
+   reader.readAsDataURL(e.target.files[0])
+   alert("avatar changed")
+  }
+
+  render() { 
+   
+    const {profileImg, addImg, profileChange, name, gender, rating} = this.state
+
+
+    //Ratting(js)
+    rating.map(e => {
+      console.log(e.rating)
+    });
+  
+    return ( 
+      <section className="profile">
+          <div className="profileContainer">
+            <div className="topPanelEmpty"></div>
+            <section className="topPanelProfile">
+              {profileChange === false ? null : <p onClick={this.chengeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
+            </section>
+            <div className="profilePanel">
+              <div className="profilePanel__imgContainer">
+              <img src={profileImg} alt="" id="img" draggable="false" className="profilePanel__img"></img>
+                <div className="profilePanel__AddImg" onClick={this.chengeDate}><BiWrench className="profilePanel__BiWrench"/></div>
+                </div>
+              <p className="profilePanel__name">{name}</p>
+            </div>
+            <div className="UsserInfo">
+              <h1 className="UsserInfo__name UsserInfo__h1">Name</h1>
+              <p className="UsserInfo__name">{name}</p>
+              <h1 className="UsserInfo__gender UsserInfo__h1">Gender</h1>
+              <p className="UsserInfo__gender">{gender}</p> 
+            </div>
+        </div> 
+
+        <div className={profileChange === false ? "hidePanel" : "showPanel"}>
+          <div className="PanelProfileOn">
+            <div className="PanelProfileOn__imgChange">
+              <input type="file" onChange={this.onChangeImg} id="avatar" name="image-upload" accept="image/*"></input>  
+              <label className="PanelProfileOn__label" htmlFor="avatar">Add picture</label>
+            </div>
+            <h1 className="PanelProfileOn__h1">Name</h1>
+            <input className="PanelProfileOn__text" type="text" placeholder={name} value={name} onChange={this.chengeName}></input>
+            <h1 className="PanelProfileOn__h1">Gender</h1>
+            <input className="PanelProfileOn__text" type="text" placeholder={gender} value={gender} onChange={this.chengeGender}></input> 
+          </div>
+        </div>
+
+      </section>
+    );
   }
 }
  

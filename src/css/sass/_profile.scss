@@ -20,25 +20,6 @@
   border: 2px solid black;
 }
 
-.messageConteiner{
-  margin-top: 80px;
-  width: 100%;
-  &__message{
-    width: 80%;
-  }
-  &__email{
-    width: 30%;
-  }
-  &__name{
-    width: 30%;
-  }
-  &____send{
-    padding: 5px 10px;
-    border: 2px solid black;
-    font-size: 2rem;
-  }
-}
-
 .topPanelProfile{
   display: flex;
   justify-content:flex-end;
@@ -82,11 +63,10 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgba(78, 73, 73, 0.089);
   &__imgContainer{
     margin-top: 10%;
-    position:relative;
-    top:0;
+    position: relative;
+    top: 0;
     left: 0;
     width: 90px;
     height: 90px;
@@ -111,7 +91,7 @@
   &__AddImg{
     width: 50px;
     height: 50px;
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     background-color: white;
@@ -120,6 +100,7 @@
     border: 4px solid black;
  }
  &__name{
+   margin-top: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     flex-basis: 100%;
@@ -188,6 +169,34 @@
     border: none;
   }
   
+}
+
+.UsserInfo{
+  position: relative;
+  top: 25vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto 5% auto 5%;
+  &__name{
+    border: none;
+    margin: 5% 0;
+    padding: 2px 0 5px 2px;
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+  }
+  &__gender{
+    border: none;
+    margin: 5% 0;
+    padding: 2px 0 5px 2px;
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+  } 
+  &__h1{
+    font-size: 2rem;
+  } 
 }
 
 

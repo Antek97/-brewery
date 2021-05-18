@@ -35,6 +35,7 @@ export const defaultObiect = {
     }
   ]
 };
+// setInterval(function(){console.log(defaultObiect.beers);}, 3000);
 
 
 

@@ -6,9 +6,10 @@ const BeersList = ( props ) => {
   const search = props.search
   const done = props.beers
   
-  done.sort((a,b) => b.id - a.id)
   const beers = done.map(beer => <Beer key={beer.id} beer={beer} deleteBeer={props.deleteBeer}/>)
-  const found = beers.find(e => e.props.beer.beerName === search )
+  let found = beers.filter(e =>e.props.beer.beerName.toLowerCase().includes(search.toLowerCase(), [0]))
+
+  done.sort((a,b) => b.id - a.id)
 
   return ( 
     <div>
@@ -18,3 +19,5 @@ const BeersList = ( props ) => {
 }
  
 export default BeersList;
+
+

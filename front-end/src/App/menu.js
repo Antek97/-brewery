@@ -59,9 +59,13 @@ class Beers extends PureComponent {
     this.counter++
 
     this.setState( prevState => ({
-      beers: [...prevState.beers, beer]
-    }))
+      beers: [...prevState.beers, beer],
+    }));
 
+    this.setState({
+      flagForm: !this.state.flagForm,
+    });
+    
     return true
   }
 
@@ -166,12 +170,6 @@ class Profile extends PureComponent {
    
     const {profileImg, addImg, profileChange, name, gender, rating} = this.state
 
-
-    //Ratting(js)
-    rating.map(e => {
-      console.log(e.rating)
-    });
-  
     return ( 
       <section className="profile">
           <div className="profileContainer">

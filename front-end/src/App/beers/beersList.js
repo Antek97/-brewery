@@ -12,9 +12,9 @@ const BeersList = ( props ) => {
   done.sort((a,b) => b.id - a.id)
 
   return ( 
-    <div>
+    <>
       {search === '' ? beers : found}
-    </div>
+    </>
   );
 }
  

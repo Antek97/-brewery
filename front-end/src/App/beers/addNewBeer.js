@@ -1,8 +1,5 @@
 import React from 'react';
 
-import Menu from './menu';
-import App from '../App';
-
 import { BsStar } from "react-icons/bs";
 import { FaRegImage } from "react-icons/fa";
 import { render } from '@testing-library/react';
@@ -19,39 +16,35 @@ class NewBeer extends React.Component {
     rating: '',
     bearImg: 'https://thumbs.dreamstime.com/b/szk%C5%82o-piwo-z-piany-linii-ikon%C4%85-kubek-zimnego-piwa-wektorowa-ilustracja-odizolowywaj%C4%85ca-na-bielu-piwny-spienia-kontur-125545431.jpg',
     dataAdded: new Date().toISOString().slice(0,10),
-    }
+    };
 
     handlechengeValueBeerName =( e )=> {
       this.setState({
         beerName: e.target.value
       })
-    }
+    };
 
     handlechengeValueBeerStyle =( e )=> {
       this.setState({
         styleBeer: e.target.value
       })
-    }
+    };
 
     handlechengeValueBrewery =( e )=> {
       this.setState({
         brewery: e.target.value
       })
-    }
+    };
 
     handleClickAddBeer =()=> {
 
       const { beerName, styleBeer, brewery, rating, bearImg } = this.state;
       
       if (beerName.length < 12 && styleBeer.length < 12 && brewery.length < 12 &&
-        beerName.length >= 1 && styleBeer.length >= 1 && brewery.length >= 1) {
+        beerName.length >= 1 && styleBeer.length >= 1 && brewery.length >= 1 && rating !== '') {
 
-        const add = this.props.add(beerName, styleBeer, brewery, rating, bearImg)
+        const add = this.props.add(beerName, styleBeer, brewery, rating, bearImg);
 
-        if(rating === ''){
-          alert("the rating is empty")
-        }
-        else if (add) {
           this.setState({
             beerName: '',
             styleBeer: '',
@@ -60,16 +53,15 @@ class NewBeer extends React.Component {
             bearImg: 'https://thumbs.dreamstime.com/b/szk%C5%82o-piwo-z-piany-linii-ikon%C4%85-kubek-zimnego-piwa-wektorowa-ilustracja-odizolowywaj%C4%85ca-na-bielu-piwny-spienia-kontur-125545431.jpg',
             dataAdded: new Date().toISOString().slice(0,10),
           })
-        }
       }
       else{
         alert("Field cannot contain more than 12 characters")
-      }
-    }
+      };
+    };
     
-    rate = star =>{
+    rate = ( star ) =>{
       this.setState({ rating : star });
-    }
+    };
 
     AddBeerImg =( e )=> {
       const reader = new FileReader();
@@ -79,12 +71,12 @@ class NewBeer extends React.Component {
       }
     }
     reader.readAsDataURL(e.target.files[0])
-    }
+    };
     
     
   render() {
 
-    let stars = []
+    let stars = [];
 
     for(let x = 1; x <= starsNumber; x++){
       stars.push(
@@ -92,10 +84,10 @@ class NewBeer extends React.Component {
           <StarRating filled={x <= this.state.rating ? true : false}  />
         </div>
       )
-    }
+    };
 
     return ( 
-      <div className="beerAddingPanel">
+      <section className="beerAddingPanel">
         <div className="beerAddingPanel__imputsContainer">
           <h1 className="beerAddingPanel__h1">Beer Name</h1>
           <input className="beerAddingPanel__BeerName" type="text" placeholder="BeerName" value={this.state.beerName} onChange={this.handlechengeValueBeerName}></input>
@@ -112,9 +104,9 @@ class NewBeer extends React.Component {
           <label className="addingPictureCotainer__label" htmlFor="beerImg"><FaRegImage/></label>
         </div>
         <button className="beerAddingPanel__btnAdd" onClick={this.handleClickAddBeer}>Add</button>
-      </div>
+      </section>
      );
-  }
+  };
 }
 
 class StarRating extends React.Component {

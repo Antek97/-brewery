@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
-import { AppContext, defaultObiect } from './AppContext';
+import { AppContext, defaultObiect } from './State/AppContext';
+
+import Guest from './test';
 
 import Menu from './App/menu';
 
@@ -12,21 +14,17 @@ class App extends PureComponent {
 
   render() { 
     return ( 
+      // <Guest/>
       <AppContext.Provider value={{
         test: this.state.test,
         usserLogged: this.state.usserLogged,
         id: this.state.id,
         name: this.state.name,
         }}>
-
         <Menu/>
-
       </AppContext.Provider>
      );
   }
 }
  
 export default App;
-
-
-

@@ -1,50 +1,51 @@
 import React, { PureComponent } from 'react';
 
-import { AppContext, defaultObiect } from '../AppContext';
+import { AppContext, defaultObiect } from '../State/AppContext';
 
 import '../css/stylesApp.css';
 
-import { BiWrench, BiLeftArrow, BiToggleLeft, BiToggleRight } from "react-icons/bi";
+import { BiWrench, BiLeftArrow } from "react-icons/bi";
 import { AiFillSetting } from "react-icons/ai";
 
-import NewBeer from './addNewBeer';
-import BeersList from './beersList';
-import DescriptionApp from './descriptionApp';
+import NewBeer from './beers/addNewBeer';
+import BeersList from './beers/beersList';
+import DescriptionApp from './main/descriptionApp';
 
  
 class MainPage extends PureComponent {
-  state = {  }
+  state = {  };
 
   render() { 
     return ( 
-    <div>
-      <section className="MainTopPanel">
-        <div className="MainTopPanel__options">
-          <div className="MainTopPanel__optionsBtn">
-              <AiFillSetting/>
-            </div>
-        </div>
-      </section>
-      <div className=""></div>
-        <section className="MainPageContainer">
-          <DescriptionApp/>
+      <div>
+        <section className="MainTopPanel">
+          <div className="MainTopPanel__options">
+            <div className="MainTopPanel__optionsBtn">
+                <AiFillSetting/>
+              </div>
+          </div>
         </section>
-    </div> 
+        <div className=""></div>
+          <section className="MainPageContainer">
+            <DescriptionApp/>
+          </section>
+      </div> 
     );
   }
 }
 
+
 class Beers extends PureComponent {
   
-  counter = 3
+  counter = 3 ;
 
-  static contextType = AppContext;
+  static contextType = AppContext ;
 
   state = { 
-    search:'',
+    search: '',
     flagForm: false,
     beers: defaultObiect.beers,
-  }
+  };
 
   addBeer =( beerName, styleBeer, brewery, rating, bearImg )=> {
     const beer = {
@@ -54,7 +55,7 @@ class Beers extends PureComponent {
       brewery,
       rating,
       bearImg,
-    }
+    };
 
     this.counter++
 
@@ -67,67 +68,68 @@ class Beers extends PureComponent {
     });
     
     return true
-  }
+  };
 
   searchBeer =( e )=> {
     this.setState({
       search: e.target.value,
     })
-  }
+  };
 
   deleteBeer =( id )=> {
-    const beers = [...this.state.beers]
+    const beers = [...this.state.beers];
     const index = beers.findIndex(beer => beer.id === id);
     beers.splice(index, 1);
     this.setState({
       beers,
     })
-  }
+  };
 
   onChangeFlagForm =()=> {
     this.setState({
       flagForm: !this.state.flagForm,
     })
-  }
+  };
 
   render() { 
 
     return (
       <>
         {this.state.flagForm ? <NewBeer add={this.addBeer}/> :
-        <div className="beersContainer">
-          <div className="topPanelEmpty"></div>
-          <section className="topPanel">
-            <form className="topPanel__container">
-              <h1 className="topPanel__h1">Find</h1>
-              <div className="topPanel__searchContainer">
-                <div className="topPanel__search">
-                  <p>🔍</p>
-                  <input className="topPanel__input" type='text' placeholder="Search" onChange={this.searchBeer}></input></div>
-              </div>
-            </form>
-          </section>
-          <ul>
-            <BeersList beers={this.state.beers} deleteBeer={this.deleteBeer} search={this.state.search}/>
-          </ul>
-          <div></div>
-        </div>
+          <div className="beersContainer">
+            <div className="topPanelEmpty"></div>
+            <section className="topPanel">
+              <form className="topPanel__container">
+                <div className="topPanel__searchContainer">
+                  <div className="topPanel__search">
+                    <p>🔍</p>
+                    <input className="topPanel__input" type='text' placeholder="Search" onChange={this.searchBeer}></input></div>
+                </div>
+              </form>
+            </section>
+            <ul>
+              <BeersList beers={this.state.beers} deleteBeer={this.deleteBeer} search={this.state.search}/>
+            </ul>
+            <div></div>
+          </div>
         }
         <button className="addbeer" onClick={this.onChangeFlagForm}>+</button>
       </>
      );
-  }
+  };
 }
 
+
 class Profile extends PureComponent {
+
   static contextType = AppContext;
 
   state = { 
-    profileImg:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwEuOE-oE-M5EGrxJAJJglaRMB9h-DEltpj6LfTi0GCCiWCqHd-oJZ_Q5pzlKMkm2RCQ&usqp=CAU",
-    addImg:null,
-    profileChange:false,
+    profileImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwEuOE-oE-M5EGrxJAJJglaRMB9h-DEltpj6LfTi0GCCiWCqHd-oJZ_Q5pzlKMkm2RCQ&usqp=CAU",
+    addImg: null,
+    profileChange: false,
     name: defaultObiect.name,
-    gender:defaultObiect.gender,
+    gender: defaultObiect.gender,
     rating: defaultObiect.beers,
   }
 
@@ -135,45 +137,47 @@ class Profile extends PureComponent {
     this.setState({
       profileChange: !this.state.profileChange,
     })
-  }
+  };
 
   chengeName =( e )=> {
     this.setState({
       name: e.target.value
     })
-  }
+  };
 
   chengeGender =( e )=> {
     this.setState({
       gender: e.target.value,
     })
-  }
+  };
   
   imgChenge =()=> {
     this.setState({
       addImg : !this.state.profileChange,
     })
-  }
+  };
 
   onChangeImg =( e )=> {
+
     const reader = new FileReader();
+
     reader.onload =()=> {
       if(reader.readyState === 2){
         this.setState({profileImg : reader.result})
     }
-  }
+  };
    reader.readAsDataURL(e.target.files[0])
    alert("avatar changed")
-  }
+  };
 
   render() { 
    
-    const {profileImg, addImg, profileChange, name, gender, rating} = this.state
+    const { profileImg, addImg, profileChange, name, gender, rating } = this.state;
 
     return ( 
       <section className="profile">
           <div className="profileContainer">
-            <div className="topPanelEmpty"></div>
+            <div className="topPanelEmptyProfile"></div>
             <section className="topPanelProfile">
               {profileChange === false ? null : <p onClick={this.chengeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
             </section>
@@ -207,33 +211,33 @@ class Profile extends PureComponent {
 
       </section>
     );
-  }
+  };
+
 }
+
  
 class Menu extends PureComponent {
   state = { 
     Layer : MainPage
-   }
+  };
 
   mainPage = () =>{
     this.setState({
         Layer : MainPage
     })
-  }
+  };
 
   handleklickBeers = () =>{
     this.setState({
         Layer : Beers
     })
-  }
+  };
 
   whereBuy = () =>{
     this.setState({
         Layer : Profile
     })
-    
-  }
-
+  };
 
   render() { 
     return (
@@ -246,10 +250,10 @@ class Menu extends PureComponent {
               <li className="menu__btn" onClick={this.whereBuy}><a>+</a></li>
             </ul>
         </section>
-
       </>
      );
-  }
+  };
+
 }
  
 export default Menu;

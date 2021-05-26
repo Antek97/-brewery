@@ -1,6 +1,6 @@
 import React from 'react';
-import '../css/stylesApp.css';
-import mainImg from '../Img/main.jpg';
+
+import mainImg from '../../Img/main.jpg';
 
 const Slider =()=> {
 

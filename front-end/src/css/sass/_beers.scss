@@ -1,11 +1,10 @@
 // .beersContainer{
-
+  
 // }
 
 .topPanelEmpty{
   width:100%;
   height: 15vh;
-  background-color: grey;
 }
 
 .topPanel{
@@ -14,23 +13,23 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 15vh;
+  height: 130px;
   background-color: rgb(71, 207, 128);
- 
   &__container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
-  &__h1{
-    margin:10px auto;
-    color: white;
-    font-size: 30px;
-  }
+  // &__h1{
+  //   margin:10px auto;
+  //   color: white;
+  //   font-size: 30px;
+  // }
   &__searchContainer{
     width: 100%;
     display: flex;
     justify-content: center; 
+    margin-top: 70px;
   }
   &__search{
     display: flex;
@@ -115,8 +114,8 @@
     width: 100%;
     flex-wrap: wrap;
     display: flex;
+    align-items: center;
     justify-content: center;
-    
   }
   &__BeerName{
     padding:6px 4px;
@@ -165,12 +164,6 @@
   justify-content: center;
   margin: 20px auto;
   text-align: center;
-  // &__oneStar{}
-  // &__twoStar{} 
-  // &__threeStar{} 
-  // &__fourStar{} 
-  // &__fiveStar{} 
-
 }
 
 .starFull{
@@ -207,8 +200,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // padding-right: 20%;
     margin: 0;
     font-size: 4rem;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .topPanel{
+    margin-top: 100px;
+    max-width: 1024px;
+    margin-left: 500px;
+    width: 100%;
+    &__container{
+      max-width: 100%;
+
+    }
+  }
+  .topPanelEmpty{
+    flex: none;
+    margin-top: 150px;
   }
 }

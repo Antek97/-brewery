@@ -67,3 +67,16 @@
   font-family: 'Roboto', sans-serif;
   margin: 30px 0;
 }
+.topPanelEmptyProfile{
+  height: 130px;  
+  }
+  
+
+@media only screen and (min-width: 600px) {
+  .MainTopPanel{
+  display: none;
+  }
+  .topPanelEmptyProfile{
+  height: 130px;  
+  }
+}

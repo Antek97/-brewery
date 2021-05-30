@@ -47,6 +47,22 @@ class Beers extends PureComponent {
     beers: defaultObiect.beers,
   };
 
+  componentDidMount(){
+    fetch("http://localhost:5000/ussers/guest/beers")
+      .then(res => res.json())
+      .catch(err => console.log(err))
+      .then(beers => this.setState({beers: beers}))
+  };
+
+  componentDidUpdate(beers){
+    fetch("http://localhost:5000/ussers/guest/beers",'Access-Control-Allow-Origin', {
+      method: 'POST',
+      body: JSON.stringify(beers)
+    })
+    .then(res => res.json())
+    .catch(err => console.log(err))
+  };
+
   addBeer =( beerName, styleBeer, brewery, rating, bearImg )=> {
     const beer = {
       id: this.counter,
@@ -92,7 +108,7 @@ class Beers extends PureComponent {
   };
 
   render() { 
-
+  setInterval(console.log(this.state.id), 1000)
     return (
       <>
         {this.state.flagForm ? <NewBeer add={this.addBeer}/> :
@@ -133,25 +149,25 @@ class Profile extends PureComponent {
     rating: defaultObiect.beers,
   }
 
-  chengeDate =()=> {
+  changeDate =()=> {
     this.setState({
       profileChange: !this.state.profileChange,
     })
   };
 
-  chengeName =( e )=> {
+  changeName =( e )=> {
     this.setState({
       name: e.target.value
     })
   };
 
-  chengeGender =( e )=> {
+  changeGender =( e )=> {
     this.setState({
       gender: e.target.value,
     })
   };
   
-  imgChenge =()=> {
+  imgChange =()=> {
     this.setState({
       addImg : !this.state.profileChange,
     })
@@ -179,12 +195,12 @@ class Profile extends PureComponent {
           <div className="profileContainer">
             <div className="topPanelEmptyProfile"></div>
             <section className="topPanelProfile">
-              {profileChange === false ? null : <p onClick={this.chengeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
+              {profileChange === false ? null : <p onClick={this.changeDate} className="topPanelProfile__showBtnProfile"><BiLeftArrow/></p>}
             </section>
             <div className="profilePanel">
               <div className="profilePanel__imgContainer">
               <img src={profileImg} alt="" id="img" draggable="false" className="profilePanel__img"></img>
-                <div className="profilePanel__AddImg" onClick={this.chengeDate}><BiWrench className="profilePanel__BiWrench"/></div>
+                <div className="profilePanel__AddImg" onClick={this.changeDate}><BiWrench className="profilePanel__BiWrench"/></div>
                 </div>
               <p className="profilePanel__name">{name}</p>
             </div>
@@ -198,14 +214,15 @@ class Profile extends PureComponent {
 
         <div className={profileChange === false ? "hidePanel" : "showPanel"}>
           <div className="PanelProfileOn">
-            <div className="PanelProfileOn__imgChange">
+          <div className="PanelProfileOn__imgChange">
               <input type="file" onChange={this.onChangeImg} id="avatar" name="image-upload" accept="image/*"></input>  
               <label className="PanelProfileOn__label" htmlFor="avatar">Add picture</label>
             </div>
             <h1 className="PanelProfileOn__h1">Name</h1>
-            <input className="PanelProfileOn__text" type="text" placeholder={name} value={name} onChange={this.chengeName}></input>
+            <input className="PanelProfileOn__text" type="text" placeholder={name} value={name} onChange={this.changeName}></input>
             <h1 className="PanelProfileOn__h1">Gender</h1>
-            <input className="PanelProfileOn__text" type="text" placeholder={gender} value={gender} onChange={this.chengeGender}></input> 
+            <input className="PanelProfileOn__text" type="text" placeholder={gender} value={gender} onChange={this.changeGender}></input> 
+            <button className="ButtonBackChange" onClick={this.changeDate}>back</button>
           </div>
         </div>
 
@@ -245,9 +262,18 @@ class Menu extends PureComponent {
         {React.createElement(this.state.Layer)}
         <section className="menu">
             <ul className="menu__list">
-              <li className="menu__btn" onClick={this.mainPage}><a>+</a></li>
-              <li className="menu__btn" onClick={this.handleklickBeers}><a>+</a></li>
-              <li className="menu__btn" onClick={this.whereBuy}><a>+</a></li>
+              <li className="menu__btn" onClick={this.mainPage}>
+                <a className="mobileNav">+</a>
+                <a className="webNav">HOME</a>
+              </li>
+              <li className="menu__btn" onClick={this.handleklickBeers}>
+                <a className="mobileNav">+</a>
+                <a className="webNav">BEERS</a>
+              </li>
+              <li className="menu__btn" onClick={this.whereBuy}>
+                <a className="mobileNav">+</a>
+                <a className="webNav">PROFILE</a>
+              </li>
             </ul>
         </section>
       </>

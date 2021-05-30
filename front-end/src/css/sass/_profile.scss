@@ -199,9 +199,22 @@
   } 
 }
 
+.ButtonBackChange{
+  display: none;
+}
 
 @media only screen and (min-width: 600px) {
   .topPanelProfile{
    display: none;
+  }
+
+  .ButtonBackChange{
+    display: block;
+    margin: 20px auto;
+    font-size: 2rem;
+    color: #262626;
+    background-color: transparent;
+    padding: 5px 10px;
+    border: 2px solid black;
   }
 }

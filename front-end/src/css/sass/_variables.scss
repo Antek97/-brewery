@@ -1,2 +1,10 @@
 $image-width: 800px;
 $image-height: 2/3 * 100%;
+
+@mixin underlineText {
+  padding:6px 4px;
+  border:0;
+  flex-basis: 70%;
+  margin: 23px auto;
+  border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+}

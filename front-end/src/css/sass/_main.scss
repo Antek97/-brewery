@@ -58,6 +58,7 @@
     }
   }
 }
+
 .myInfo{
   font-family: 'Roboto', sans-serif;
   margin: 30px 0;
@@ -70,6 +71,18 @@
 
 .topPanelEmptyProfile{
   height: 130px;  
+}
+.brakeIcon{
+  margin-right: 10px;
+}
+.mainImgContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.mainImg{
+  width: 100%;
+  margin:auto;
 }
   
 @media only screen and (min-width: 600px) {
@@ -85,5 +98,9 @@
     &__VlogTitle{
       text-align: left;
     }
+  }
+  .mainImg{
+    margin: 40px 0;
+    width: 80%;
   }
 }

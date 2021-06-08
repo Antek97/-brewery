@@ -109,25 +109,13 @@
     justify-content: center;
   }
   &__BeerName{
-    padding:6px 4px;
-    border:0;
-    flex-basis: 70%;
-    margin: 23px auto;
-    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+    @include underlineText;
   }
   &__BeerStyle{
-    padding:6px 4px;
-    border:0;
-    flex-basis: 70%;
-    margin: 23px auto;
-    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+    @include underlineText;
   }
   &__Brewery{
-    padding:6px 4px;
-    border:0;
-    flex-basis: 70%;
-    margin: 23px auto;
-    border-bottom: 1px solid rgba(43, 42, 42, 0.514);
+    @include underlineText;
   }
   &__h1{
     flex-basis: 100%;
@@ -196,6 +184,16 @@
   }
 }
 
+.AddBeerMobile{
+  display: block;
+  visibility: visible;
+}
+
+.AddBeerBrowser{
+  display: none;
+  visibility: hidden;
+}
+
 @media only screen and (min-width: 600px) {
   .topPanel{
     margin-top: 100px;
@@ -215,5 +213,31 @@
   .topPanelEmpty{
     flex: none;
     margin-top: 150px;
+  }
+  
+  .AddBeerMobile{
+    display: none;
+    visibility: hidden;
+  }
+
+  .AddBeerBrowser{
+    display: block;
+    visibility: visible;
+  }
+
+  .addbeer{
+    border-radius: 0;
+    width: 100px;
+    height: 80px;
+    color: white;
+    padding: 5px 2px;
+    border: 0;
+    margin-left: 10px;
+    border: 2px solid black;
+    background-color: #262626;
+  }
+
+  .beerAddingPanel{
+    margin-top: 130px;
   }
 }

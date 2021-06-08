@@ -1,7 +1,7 @@
 import React from 'react';
 import Beer from './beer';
 
-const BeersList = ( props ) => {
+const BeersList = (props) => {
   
   const search = props.search
   const done = props.beers

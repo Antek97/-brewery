@@ -12,13 +12,13 @@ I used Hooks to build the main state.backend aplikacji został stworzony na fram
 const contact = 
 <section className="contact">
   <div className="contact__unit">
-    <a href="https://www.linkedin.com/in/sebastian-antkowiak-932323211/"><SiInvision/>  My Linkedin</a>
+    <a href="https://www.linkedin.com/in/sebastian-antkowiak-932323211/"><SiInvision className="brakeIcon"/>My Linkedin</a>
   </div>
   <div className="contact__unit">
-    <a href="https://github.com/Antek97"><SiGithub/>  My Github</a>
+    <a href="https://github.com/Antek97"><SiGithub className="brakeIcon"/>My Github</a>
   </div>
   <div className="contact__unit">
-    <p><SiGmail/>  seb.antkowiak@gmail.com</p>
+    <p><SiGmail className="brakeIcon"/>seb.antkowiak@gmail.com</p>
   </div>
 </section>;
 
@@ -29,6 +29,12 @@ const DescriptionApp =()=> {
           {descriptionAppTitle}
           {descriptionApp}
         </header>
+        <section className="mainImgContainer">
+          <img 
+            src="https://media-cdn.tripadvisor.com/media/photo-s/1b/78/81/ac/jabeerwocky-craft-beer.jpg" 
+            className="mainImg">
+          </img>
+          </section>
           <footer>
             {articleFirst}
             {contact}

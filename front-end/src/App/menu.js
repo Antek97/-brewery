@@ -25,7 +25,6 @@ class MainPage extends PureComponent {
               </div>
           </div>
         </section>
-        <div className=""></div>
           <section className="MainPageContainer">
             <DescriptionApp/>
           </section>
@@ -54,16 +53,9 @@ class Beers extends PureComponent {
       .then(beers => this.setState({beers: beers}))
   };
 
-  componentDidUpdate(beers){
-    fetch("http://localhost:5000/ussers/guest/beers",'Access-Control-Allow-Origin', {
-      method: 'POST',
-      body: JSON.stringify(beers)
-    })
-    .then(res => res.json())
-    .catch(err => console.log(err))
-  };
+ 
 
-  addBeer =( beerName, styleBeer, brewery, rating, bearImg )=> {
+  addBeer =(beerName, styleBeer, brewery, rating, bearImg)=> {
     const beer = {
       id: this.counter,
       beerName,
@@ -86,13 +78,13 @@ class Beers extends PureComponent {
     return true
   };
 
-  searchBeer =( e )=> {
+  searchBeer =(e)=> {
     this.setState({
       search: e.target.value,
     })
   };
 
-  deleteBeer =( id )=> {
+  deleteBeer =(id)=> {
     const beers = [...this.state.beers];
     const index = beers.findIndex(beer => beer.id === id);
     beers.splice(index, 1);
@@ -108,7 +100,15 @@ class Beers extends PureComponent {
   };
 
   render() { 
-  setInterval(console.log(this.state.id), 1000)
+
+    // const sendBeers = beers => {
+    //   const data = new FormData();
+    //   data.append("beers", this.state.beers);
+    //   fetch("http://localhost:5000/ussers/guest/beers",'Access-Control-Allow-Origin')
+    //   .then(res => res.json())
+    //   .catch(err => console.log(err))
+    // };
+  // setInterval(console.log(this.state.id), 1000)
     return (
       <>
         {this.state.flagForm ? <NewBeer add={this.addBeer}/> :
@@ -126,10 +126,10 @@ class Beers extends PureComponent {
             <ul>
               <BeersList beers={this.state.beers} deleteBeer={this.deleteBeer} search={this.state.search}/>
             </ul>
-            <div></div>
+            {/* <div><button onChange={sendBeers}>HALO Serwer</button></div> */}
           </div>
         }
-        <button className="addbeer" onClick={this.onChangeFlagForm}>+</button>
+        <button className="addbeer" onClick={this.onChangeFlagForm}><p className="AddBeerMobile">+</p><p className="AddBeerBrowser">Add Beer</p></button>
       </>
      );
   };
@@ -155,13 +155,13 @@ class Profile extends PureComponent {
     })
   };
 
-  changeName =( e )=> {
+  changeName =(e)=> {
     this.setState({
       name: e.target.value
     })
   };
 
-  changeGender =( e )=> {
+  changeGender =(e)=> {
     this.setState({
       gender: e.target.value,
     })
@@ -173,7 +173,7 @@ class Profile extends PureComponent {
     })
   };
 
-  onChangeImg =( e )=> {
+  onChangeImg =(e)=> {
 
     const reader = new FileReader();
 
@@ -188,7 +188,7 @@ class Profile extends PureComponent {
 
   render() { 
    
-    const { profileImg, addImg, profileChange, name, gender, rating } = this.state;
+    const {profileImg, addImg, profileChange, name, gender, rating} = this.state;
 
     return ( 
       <section className="profile">
@@ -217,12 +217,12 @@ class Profile extends PureComponent {
           <div className="PanelProfileOn__imgChange">
               <input type="file" onChange={this.onChangeImg} id="avatar" name="image-upload" accept="image/*"></input>  
               <label className="PanelProfileOn__label" htmlFor="avatar">Add picture</label>
-            </div>
+          </div>
             <h1 className="PanelProfileOn__h1">Name</h1>
             <input className="PanelProfileOn__text" type="text" placeholder={name} value={name} onChange={this.changeName}></input>
             <h1 className="PanelProfileOn__h1">Gender</h1>
             <input className="PanelProfileOn__text" type="text" placeholder={gender} value={gender} onChange={this.changeGender}></input> 
-            <button className="ButtonBackChange" onClick={this.changeDate}>back</button>
+            <button className="ButtonBackChange" onClick={this.changeDate}>Back</button>  
           </div>
         </div>
 
@@ -232,7 +232,7 @@ class Profile extends PureComponent {
 
 }
 
- 
+
 class Menu extends PureComponent {
   state = { 
     Layer : MainPage

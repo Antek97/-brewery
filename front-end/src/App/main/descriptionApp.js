@@ -22,7 +22,7 @@ const contact =
   </div>
 </section>;
 
-const DescriptionApp =()=> {
+const DescriptionApp = () => {
   return(
       <>
         <header className="header">

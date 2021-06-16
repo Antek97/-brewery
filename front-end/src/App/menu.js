@@ -46,7 +46,7 @@ class Beers extends PureComponent {
     beers: defaultObiect.beers,
   };
 
-  componentDidMount(){
+  componentDidMount() {
     fetch("http://localhost:5000/ussers/guest/beers")
       .then(res => res.json())
       .catch(err => console.log(err))
@@ -55,7 +55,7 @@ class Beers extends PureComponent {
 
  
 
-  addBeer =(beerName, styleBeer, brewery, rating, bearImg)=> {
+  addBeer = (beerName, styleBeer, brewery, rating, bearImg) => {
     const beer = {
       id: this.counter,
       beerName,
@@ -67,7 +67,7 @@ class Beers extends PureComponent {
 
     this.counter++
 
-    this.setState( prevState => ({
+    this.setState(prevState => ({
       beers: [...prevState.beers, beer],
     }));
 
@@ -78,13 +78,13 @@ class Beers extends PureComponent {
     return true
   };
 
-  searchBeer =(e)=> {
+  searchBeer = (e) => {
     this.setState({
       search: e.target.value,
     })
   };
 
-  deleteBeer =(id)=> {
+  deleteBeer = (id) => {
     const beers = [...this.state.beers];
     const index = beers.findIndex(beer => beer.id === id);
     beers.splice(index, 1);
@@ -93,7 +93,7 @@ class Beers extends PureComponent {
     })
   };
 
-  onChangeFlagForm =()=> {
+  onChangeFlagForm = () => {
     this.setState({
       flagForm: !this.state.flagForm,
     })
@@ -101,14 +101,6 @@ class Beers extends PureComponent {
 
   render() { 
 
-    // const sendBeers = beers => {
-    //   const data = new FormData();
-    //   data.append("beers", this.state.beers);
-    //   fetch("http://localhost:5000/ussers/guest/beers",'Access-Control-Allow-Origin')
-    //   .then(res => res.json())
-    //   .catch(err => console.log(err))
-    // };
-  // setInterval(console.log(this.state.id), 1000)
     return (
       <>
         {this.state.flagForm ? <NewBeer add={this.addBeer}/> :
@@ -126,7 +118,6 @@ class Beers extends PureComponent {
             <ul>
               <BeersList beers={this.state.beers} deleteBeer={this.deleteBeer} search={this.state.search}/>
             </ul>
-            {/* <div><button onChange={sendBeers}>HALO Serwer</button></div> */}
           </div>
         }
         <button className="addbeer" onClick={this.onChangeFlagForm}><p className="AddBeerMobile">+</p><p className="AddBeerBrowser">Add Beer</p></button>
@@ -149,35 +140,35 @@ class Profile extends PureComponent {
     rating: defaultObiect.beers,
   }
 
-  changeDate =()=> {
+  changeDate = () => {
     this.setState({
       profileChange: !this.state.profileChange,
     })
   };
 
-  changeName =(e)=> {
+  changeName = (e) => {
     this.setState({
       name: e.target.value
     })
   };
 
-  changeGender =(e)=> {
+  changeGender = (e) => {
     this.setState({
       gender: e.target.value,
     })
   };
   
-  imgChange =()=> {
+  imgChange = () => {
     this.setState({
       addImg : !this.state.profileChange,
     })
   };
 
-  onChangeImg =(e)=> {
+  onChangeImg = (e) => {
 
     const reader = new FileReader();
 
-    reader.onload =()=> {
+    reader.onload = () => {
       if(reader.readyState === 2){
         this.setState({profileImg : reader.result})
     }
@@ -238,19 +229,19 @@ class Menu extends PureComponent {
     Layer : MainPage
   };
 
-  mainPage = () =>{
+  mainPage = () => {
     this.setState({
         Layer : MainPage
     })
   };
 
-  handleklickBeers = () =>{
+  handleklickBeers = () => {
     this.setState({
         Layer : Beers
     })
   };
 
-  whereBuy = () =>{
+  whereBuy = () => {
     this.setState({
         Layer : Profile
     })

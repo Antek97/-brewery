@@ -18,25 +18,25 @@ class NewBeer extends React.Component {
     dataAdded: new Date().toISOString().slice(0,10),
     };
 
-    handlechengeValueBeerName =(e)=> {
+    handlechengeValueBeerName = (e) => {
       this.setState({
         beerName: e.target.value
       })
     };
 
-    handlechengeValueBeerStyle =(e)=> {
+    handlechengeValueBeerStyle = (e) => {
       this.setState({
         styleBeer: e.target.value
       })
     };
 
-    handlechengeValueBrewery =(e)=> {
+    handlechengeValueBrewery = (e) => {
       this.setState({
         brewery: e.target.value
       })
     };
 
-    handleClickAddBeer =()=> {
+    handleClickAddBeer = () => {
 
       const { beerName, styleBeer, brewery, rating, bearImg } = this.state;
       
@@ -63,7 +63,7 @@ class NewBeer extends React.Component {
       this.setState({ rating : star });
     };
 
-    AddBeerImg =(e)=> {
+    AddBeerImg = (e) => {
       const reader = new FileReader();
       reader.onload =()=> {
         if(reader.readyState === 2){

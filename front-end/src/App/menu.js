@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import { AppContext, defaultObiect } from '../State/AppContext';
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 import '../css/stylesApp.css';
 
@@ -225,45 +226,27 @@ class Profile extends PureComponent {
 
 
 class Menu extends PureComponent {
-  state = { 
-    Layer : MainPage
-  };
-
-  mainPage = () => {
-    this.setState({
-        Layer : MainPage
-    })
-  };
-
-  handleklickBeers = () => {
-    this.setState({
-        Layer : Beers
-    })
-  };
-
-  whereBuy = () => {
-    this.setState({
-        Layer : Profile
-    })
-  };
-
   render() { 
     return (
       <> 
-        {React.createElement(this.state.Layer)}
+       <Switch>
+            <Route path="/mainPage" exact component={MainPage}/>
+            <Route path="/beers" exact component={Beers}/>
+            <Route path="/profile" exact component={Profile}/>
+          </Switch>
         <section className="menu">
             <ul className="menu__list">
               <li className="menu__btn" onClick={this.mainPage}>
-                <a className="mobileNav">+</a>
-                <a className="webNav">HOME</a>
+                <Link to="/mainPage" exact className="mobileNav">+</Link>
+                <Link to="/mainPage" className="webNav">HOME</Link>
               </li>
               <li className="menu__btn" onClick={this.handleklickBeers}>
-                <a className="mobileNav">+</a>
-                <a className="webNav">BEERS</a>
+                <Link to="/beers" exact className="mobileNav">+</Link>
+                <Link to="/beers" className="webNav">BEERS</Link>
               </li>
               <li className="menu__btn" onClick={this.whereBuy}>
-                <a className="mobileNav">+</a>
-                <a className="webNav">PROFILE</a>
+                <Link to="/profile" exact className="mobileNav">+</Link>
+                <Link to="/profile" className="webNav">PROFILE</Link>
               </li>
             </ul>
         </section>
